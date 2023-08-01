@@ -4,9 +4,64 @@
   border: solid 1px #dddddd;
 }
 
+.sidebar-root .cta
+{
+  height: 44px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+}
+
 .sidebar-root .separator
 {
   border: solid 1px #dddddd;
   border-bottom-color: transparent;
   height: 0;
+}
+
+.sidebar-root .menu
+{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-root .menuitem
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px;
+  padding: 8px;
+}
+
+.sidebar-root .menuitem .left
+{
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-root .menuitem .right
+{
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-root .menuitem.active
+{
+  background-color: #f6f8fa;
+}
+
+.sidebar-root .menuitem .icon-root
+{
+  margin-right: 15px;
+}
+
+.sidebar-root .menuitem.level-2
+{
+  margin-left: 36px;
 }

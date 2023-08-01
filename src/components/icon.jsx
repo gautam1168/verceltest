@@ -48,7 +48,7 @@ export default function Icon({ name, size, color })
     cloning: Cloning,
     killed: Killed,
     failed: Failed,
-    clock: Clock
+    clock: Clock,
   };
 
   if (iconsComponents[name])

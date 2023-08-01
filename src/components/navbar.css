@@ -2,7 +2,10 @@
   background-color: #222222;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  height: 60px;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .navbar-root a {

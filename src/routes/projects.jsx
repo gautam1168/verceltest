@@ -4,6 +4,7 @@ import Button from "../components/button";
 import Icon from "../components/icon";
 import "./projects.css";
 import Dropdown from "../components/dropdown";
+import Badge from "../components/badge";
 
 export default function Projects()
 {
@@ -28,7 +29,7 @@ export default function Projects()
   };
 
   const getStatus = status => {
-    let classNames = "typography-semibold-14";
+    let classNames = "vertically-center typography-semibold-14";
     let icon = null;
     if (status == "RUNNING")
     {
@@ -92,13 +93,16 @@ export default function Projects()
           <div className="card-itemrow">
             <div className="left">
               <span className="typography-h2">{item.name}</span>
-              <span className="typography-semibold-14 typography-gray9">
-                5321
-              </span>
+              <Badge>
+                <span className="typography-semibold-14 typography-gray9">
+                  5321
+                </span>
+              </Badge>
+              
             </div>
             <div className="right">
               { getStatus(item.status) }
-              <span className="typography-semibold-14 typography-link-lightblue">
+              <span className="vertically-center typography-semibold-14 typography-link-lightblue">
                 <Icon name="gear" size="regular" color="linkblue"></Icon>
                 Settings
               </span>
