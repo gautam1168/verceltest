@@ -2,3 +2,34 @@
   display: grid;
   grid-template-columns: 200px 1fr;
 }
+
+.projects-body
+{
+  padding: 40px;
+}
+
+.blockchain-logo
+{
+  width: 28px;
+  height: 28px;
+}
+
+.cards-container
+{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-root 
+{
+  border: solid 1px #E5E5E5;
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px 0px #0000000F;
+  padding: 20px;
+}
+
+.projects-body > .typography-h2 
+{
+  margin-bottom: 24px;
+}
