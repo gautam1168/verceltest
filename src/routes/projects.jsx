@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Sidebar from "../components/sidebar";
 import Button from "../components/button";
+import Icon from "../components/icon";
 import "./projects.css";
 import Dropdown from "../components/dropdown";
 
@@ -28,14 +29,26 @@ export default function Projects()
 
   const getStatus = status => {
     let classNames = "typography-semibold-14";
+    let icon = null;
     if (status == "RUNNING")
     {
       classNames += " typography-success-green-dark";
+      icon = <Icon name="tick" size="regular" color="success"/>
+    }
+    else if (status == "STOPPED")
+    {
+      classNames += " typography-graya";
+      icon = <Icon name="killed" size="regular" color="faded" />;
+    }
+    else if (status == "PENDING")
+    {
+      classNames += " typography-warning-yellow";
+      icon = <Icon name="standinghourglass" size="regular" color="warning" />
     }
 
     return (
       <span className={classNames}>
-        {status}
+        {icon}{status}
       </span>
     );
   }
@@ -85,7 +98,10 @@ export default function Projects()
             </div>
             <div className="right">
               { getStatus(item.status) }
-              <span className="typography-semibold-14 typography-link-lightblue">Settings</span>
+              <span className="typography-semibold-14 typography-link-lightblue">
+                <Icon name="gear" size="regular" color="linkblue"></Icon>
+                Settings
+              </span>
             </div>
           </div>
           <div className="card-itemrow">
@@ -95,7 +111,8 @@ export default function Projects()
             { item.testnet_chains.map(getChainImage) }
             </div>
             <div className="right">
-              <span>Modified {diffPhrase}</span>
+              <Icon name="clock" size="regular" color="faded" />
+              <span className="typography-graya">Modified {diffPhrase}</span>
             </div>
           </div>
         </div>

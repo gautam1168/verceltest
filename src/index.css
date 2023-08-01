@@ -39,6 +39,11 @@ code {
   color: #999999;
 }
 
+.typography-graya
+{
+  color: #aaaaaa;
+}
+
 .typography-success-green-dark
 {
   color: #509900;
@@ -47,4 +52,9 @@ code {
 .typography-link-lightblue
 {
   color: #2f80ed;
+}
+
+.typography-warning-yellow
+{
+  color: #db9000;
 }

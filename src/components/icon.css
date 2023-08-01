@@ -1,0 +1,42 @@
+.icon-root
+{
+  display: inline-block;
+}
+
+.icon-root svg
+{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.icon-root.regular 
+{
+  width: 16px;
+  height: 16px;
+}
+
+.icon-root.small
+{
+  width: 8px;
+  height: 8px;
+}
+
+.icon-root.success svg path
+{
+  fill: #509900;
+}
+
+.icon-root.warning svg path
+{
+  fill:  #db9000;
+}
+
+.icon-root.faded svg path
+{
+  fill: #aaaaaa;
+}
+
+.icon-root.linkblue svg path
+{
+  fill: #2f80ed;
+}
