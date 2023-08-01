@@ -1,0 +1,12 @@
+.sidebar-root
+{
+  background-color: #ffffff;
+  border: solid 1px #dddddd;
+}
+
+.sidebar-root .separator
+{
+  border: solid 1px #dddddd;
+  border-bottom-color: transparent;
+  height: 0;
+}

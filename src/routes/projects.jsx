@@ -1,6 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import Sidebar from "../components/sidebar";
+import Button from "../components/button";
 import "./projects.css";
+import Dropdown from "../components/dropdown";
 
 export default function Projects()
 {
@@ -25,7 +27,7 @@ export default function Projects()
   };
 
   const getStatus = status => {
-    let classNames = "typography-semibold";
+    let classNames = "typography-semibold-14";
     if (status == "RUNNING")
     {
       classNames += " typography-success-green-dark";
@@ -74,19 +76,27 @@ export default function Projects()
 
       return (
         <div className="card-root" key={item.id}>
-          <div>
-            <span className="typography-h2">{item.name}</span>
-            <span className="typography-semibold typography-gray9">
-              5321
-            </span>
-            { getStatus(item.status) }
-            <span className="typography-semibold typography-link-lightblue">Settings</span>
+          <div className="card-itemrow">
+            <div className="left">
+              <span className="typography-h2">{item.name}</span>
+              <span className="typography-semibold-14 typography-gray9">
+                5321
+              </span>
+            </div>
+            <div className="right">
+              { getStatus(item.status) }
+              <span className="typography-semibold-14 typography-link-lightblue">Settings</span>
+            </div>
           </div>
-          <div>
+          <div className="card-itemrow">
+            <div className="left">
             <span>{item.testnet_off_chain_actors.length} off chain actors</span>
             <span>{item.testnet_chains.length} Blockchain</span>
             { item.testnet_chains.map(getChainImage) }
-            <span>Modified {diffPhrase}</span>
+            </div>
+            <div className="right">
+              <span>Modified {diffPhrase}</span>
+            </div>
           </div>
         </div>
       );
@@ -96,8 +106,17 @@ export default function Projects()
   return (<div className="projects-root">
     <Sidebar />
     <div className="projects-body">
-      <div className="typography-h2">
-        Testnets (8)
+      <div className="project-data-controls">
+        <div className="left">
+          <div className="typography-h2">
+            Testnets (8)
+          </div>
+          <Button variant="primary" size="large">+ New Testnet</Button>
+        </div>
+        <div className="right">
+          <Dropdown label="Filter by:" ></Dropdown>
+          <Dropdown label="Sort by:" ></Dropdown>
+        </div>
       </div>
       <div className="cards-container">{cards}</div>
     </div>

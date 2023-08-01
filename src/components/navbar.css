@@ -1,7 +1,25 @@
 .navbar-root {
-  background-color: black;
+  background-color: #222222;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.navbar-root a {
+  color: #aaaaaa;
+  text-decoration: none;
+}
+
+.navbar-root .left 
+{
   display: flex;
   justify-content: flex-start;
   gap: 20px; 
-  padding: 20px;
+}
+
+.navbar-root .right
+{
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
 }

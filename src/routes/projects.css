@@ -23,13 +23,43 @@
 
 .card-root 
 {
+  background-color: #ffffff;
   border: solid 1px #E5E5E5;
   border-radius: 20px;
   box-shadow: 0px 4px 6px 0px #0000000F;
   padding: 20px;
 }
 
-.projects-body > .typography-h2 
+.card-root .card-itemrow
 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-root .card-itemrow .left
+{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.card-root .card-itemrow .right
+{
+  display: flex;
+}
+
+.project-data-controls
+{
+  display: flex;
   margin-bottom: 24px;
+  justify-content: space-between;
+}
+
+.project-data-controls .left
+{
+  display: flex;
+}
+
+.project-data-controls .right
+{
+  display: flex;
 }
