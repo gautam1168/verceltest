@@ -1,24 +1,33 @@
 .projects-root {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 300px 1fr;
 }
 
 .projects-body
 {
   padding: 40px;
+  padding-bottom: 0;
+}
+
+.project-data-controls
+{
+  max-width: 1078px;
+}
+
+.cards-container
+{
+  max-height: calc(100vh - 154px); /* TODO: Fix this using calc depending on height of navbar */
+  overflow-y: auto;
+  width: 1078px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .blockchain-logo
 {
   width: 28px;
   height: 28px;
-}
-
-.cards-container
-{
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 }
 
 .card-root 

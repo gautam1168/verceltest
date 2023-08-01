@@ -6,7 +6,7 @@ export default function Sidebar()
   return (
     <div className="sidebar-root">
       <Button size="regular" variant="secondary">
-        <Icon name="arrowleft" size="regular"/>
+        <Icon name="arrowleft" size="regular" color="faded"/>
         Back to all projects
       </Button>
       <div className="separator"></div>
