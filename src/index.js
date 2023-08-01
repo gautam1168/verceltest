@@ -12,6 +12,8 @@ import ErrorPage from './error-page';
 
 import Root, { loader as projectLoader } from "./routes/root";
 import Projects from "./routes/projects";
+import Docs from './routes/docs';
+import CheatSheet from './routes/cheatsheet';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
         path: "projects",
         element: <Projects />,
         loader: projectLoader
+      },
+      {
+        path: "docs",
+        element: <Docs />
+      },
+      {
+        path: "cheatsheet",
+        element: <CheatSheet />
       }
     ]
   }

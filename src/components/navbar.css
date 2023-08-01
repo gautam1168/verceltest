@@ -1,0 +1,7 @@
+.navbar-root {
+  background-color: black;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px; 
+  padding: 20px;
+}

@@ -1,4 +1,6 @@
 import { useLoaderData } from "react-router-dom";
+import Sidebar from "../components/sidebar";
+import "./projects.css";
 
 export default function Projects()
 {
@@ -9,8 +11,10 @@ export default function Projects()
     cards = Object.values(projects.testnet).map(item => <div key={item.id}>{item.name}</div>);
   }
 
-  return (<div>
-    Projects list
-    {cards}
+  return (<div className="projects-root">
+    <Sidebar />
+    <div>
+      {cards}
+    </div>
   </div>);
 }

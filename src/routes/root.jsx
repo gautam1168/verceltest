@@ -1,20 +1,10 @@
 import { Outlet, Link } from "react-router-dom";
+import Navbar from "../components/navbar";
+
 export default function Root() {
   return (
     <>
-      <div>
-        <ul>
-          <li>
-            <Link to={'projects'}>Projects</Link>
-          </li>
-          <li>
-            <Link to={'docs'}>Docs</Link>
-          </li>
-          <li>
-            <Link to={'cheatsheet'}>Command Cheatsheet</Link>
-          </li>
-        </ul>
-      </div>
+      <Navbar />
       <div id="detail">
         <Outlet />
       </div>
