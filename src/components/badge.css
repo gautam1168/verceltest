@@ -4,7 +4,7 @@
   background-color: #ffffff;
   border: solid 1px #E5E5E5;
   border-radius: 20px;
-  box-shadow: 0px 4px 6px 0px #0000000F;
+  /* box-shadow: 0px 4px 6px 0px #0000000F; */
   min-width: 25px;
   display: flex;
   align-items: center;

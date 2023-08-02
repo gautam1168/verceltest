@@ -22,23 +22,32 @@ function useTestnet()
 export default function Projects()
 {
   const getChainImage = data => {
+    let image = null;
     switch(data.chain)
     {
       case "alchemy":
-        return <img className="blockchain-logo" key={data.chain} src="/Blockchains/Alchemy.png"></img>;
+        image = (<img src="/Blockchains/Alchemy.png"></img>);
+        break;
       case "arbitrum":
-        return <img className="blockchain-logo" key={data.chain} src="/Blockchains/Arbitrum.png"></img>;
+        image = (<img src="/Blockchains/Arbitrum.png"></img>);
+        break;
       case "ethereum":
-        return <img className="blockchain-logo" key={data.chain} src="/Blockchains/Ethereum.png"></img>;
+        image = (<img src="/Blockchains/Ethereum.png"></img>);
+        break;
       case "fantom":
-        return <img className="blockchain-logo" key={data.chain} src="/Blockchains/Fantom.png"></img>;
+        image = (<img src="/Blockchains/Fantom.png"></img>);
+        break;
       case "optimism":
-        return <img className="blockchain-logo" key={data.chain} src="/Blockchains/Optimism.png"></img>;
+        image = (<img src="/Blockchains/Optimism.png"></img>);
+        break;
       case "polygon":
-        return <img className="blockchain-logo" key={data.chain} src="/Blockchains/Polygon.png"></img>;
+        image = (<img src="/Blockchains/Polygon.png"></img>);
+        break;
       default:
-        return null;
+        image = data.chain;
     }
+
+    return <div className="blockchain-logo" key={data.chain}>{image}</div>
   };
 
   const getStatus = status => {

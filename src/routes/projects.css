@@ -18,7 +18,7 @@
 {
   max-height: calc(100vh - 154px); /* TODO: Fix this using calc depending on height of navbar */
   overflow-y: auto;
-  width: 1078px;
+  max-width: 1078px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -39,8 +39,19 @@
 
 .blockchain-logo
 {
-  height: 17px;
-  width: auto;
+  height: 28px;
+  width: 28px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #dddddd;
+}
+
+.blockchain-logo > img
+{
+  width: 16px;
+  height: 16px;
 }
 
 .card-root 
