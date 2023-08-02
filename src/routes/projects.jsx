@@ -166,26 +166,32 @@ export default function Projects()
           </div>
           <div className="card-itemrow">
             <div className="left">
-              <span>{item.testnet_off_chain_actors.length} off chain actors</span>
+              <span className="typography-medium-14">
+                {item.testnet_off_chain_actors.length} off-chain actors
+              </span>
               <Icon name="dot" color="faded" size="extrasmall"></Icon>
-              <span>{item.testnet_chains.length} Blockchain</span>
+              <span className="typography-medium-14">
+                {item.testnet_chains.length} Blockchain
+              </span>
               <span className="logo-group">
                 {item.testnet_chains.map(getChainImage)}
               </span>
             </div>
             <div className="right">
               <Icon name="clock" size="regular" color="faded" />
-              <span className="typography-graya">Modified {diffPhrase}</span>
+              <span className="typography-graya typography-medium-13">
+                Modified {diffPhrase}
+              </span>
             </div>
           </div>
           {
             item.status == "PENDING" && (<div className="card-itemrow">
               <div className="left">
                 <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-                <span className="typography-warning-yellow">{item.testnet_off_chain_actors.length} off chain updating</span>
+                <span className="typography-warning-yellow typography-medium-14">{item.testnet_off_chain_actors.length} off chain updating</span>
                 <Icon name="dot" color="faded" size="extrasmall"></Icon>
                 <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-                <span className="typography-warning-yellow">{item.testnet_chains.length} Blockchains updating</span>
+                <span className="typography-warning-yellow typography-medium-14">{item.testnet_chains.length} Blockchains updating</span>
               </div>
             </div>)
           }

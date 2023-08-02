@@ -34,7 +34,9 @@ export default function Navbar()
             Your user key
           </a>
         </span>
-        <span><a href="#">U</a></span>
+        <span className="userbubble">
+          <Icon name="members" color="faded" size="regular"></Icon>
+        </span>
       </div>
     </div>
   );

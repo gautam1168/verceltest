@@ -33,3 +33,17 @@
 {
   justify-content: flex-end;
 }
+
+.navbar-root .userbubble
+{
+  cursor: pointer;
+  min-width: 2ch;
+  min-height: 2ch;
+  border-radius: 100%;
+  border: solid 1px #aaaaaa;
+  padding: 4px;
+  gap: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

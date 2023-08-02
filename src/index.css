@@ -41,6 +41,13 @@ code {
   line-height: 24px;
 }
 
+.typography-medium-13
+{
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 24px;
+}
+
 .typography-gray9
 {
   color: #999999;
