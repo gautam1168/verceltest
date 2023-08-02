@@ -55,6 +55,28 @@
   flex-direction: column;
 }
 
+.card-root.killed
+{
+  box-shadow: none;
+}
+
+.card-root.failed
+{
+  border-color: #CD3A4C;
+  background-color: #fdf7f8;
+}
+
+.card-root.killed
+{
+  background-color: transparent;
+}
+
+.card-root.killed .card-itemrow,
+.card-root.killed .title 
+{
+  color: #666666;
+}
+
 .card-root .card-itemrow
 {
   display: flex;

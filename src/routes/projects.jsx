@@ -46,6 +46,16 @@ export default function Projects()
       classNames += " typography-warning-yellow";
       icon = <Icon name="standinghourglass" size="regular" color="warning" />
     }
+    else if (status == "FAILED")
+    {
+      classNames += " typography-failed-red";
+      icon = <Icon name="failed" size="regular" color="failed" />
+    }
+
+    if (status == "STOPPED")
+    {
+      status = "KILLED";
+    }
 
     return (
       <span className={classNames}>
@@ -88,11 +98,21 @@ export default function Projects()
         diffPhrase = "more than a year ago";
       }
 
+      let rootClasses = "card-root";
+      if (item.status == "STOPPED") 
+      {
+        rootClasses += " killed";
+      }
+      else if (item.status == "FAILED")
+      {
+        rootClasses += " failed";
+      }
+
       return (
-        <div className="card-root" key={item.id}>
+        <div className={rootClasses} key={item.id}>
           <div className="card-itemrow">
             <div className="left">
-              <span className="typography-h2">{item.name}</span>
+              <span className="title typography-h2">{item.name}</span>
               <Badge>
                 <span className="typography-semibold-14 typography-gray9">
                   5321
@@ -111,10 +131,10 @@ export default function Projects()
           </div>
           <div className="card-itemrow">
             <div className="left">
-            <span>{item.testnet_off_chain_actors.length} off chain actors</span>
-            <Icon name="dot" color="faded" size="extrasmall"></Icon>
-            <span>{item.testnet_chains.length} Blockchain</span>
-            { item.testnet_chains.map(getChainImage) }
+              <span>{item.testnet_off_chain_actors.length} off chain actors</span>
+              <Icon name="dot" color="faded" size="extrasmall"></Icon>
+              <span>{item.testnet_chains.length} Blockchain</span>
+              {item.testnet_chains.map(getChainImage)}
             </div>
             <div className="right">
               <Icon name="clock" size="regular" color="faded" />
