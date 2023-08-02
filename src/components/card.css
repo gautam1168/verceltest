@@ -1,0 +1,87 @@
+.card-root .logo-group
+{
+  position: relative;
+  height: 28px;
+}
+
+.logo-group .blockchain-logo
+{
+  height: 28px;
+  width: 28px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #dddddd;
+  position: absolute;
+  background-color: #ffffff;
+}
+
+.logo-group .blockchain-logo > img
+{
+  width: 16px;
+  height: 16px;
+}
+
+.card-root 
+{
+  background-color: #ffffff;
+  border: solid 1px #E5E5E5;
+  border-radius: 20px;
+  box-shadow: 0px 4px 6px 0px #0000000F;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.card-root.killed
+{
+  box-shadow: none;
+}
+
+.card-root.failed
+{
+  border-color: #CD3A4C;
+  background-color: #fdf7f8;
+}
+
+.card-root.killed
+{
+  background-color: transparent;
+}
+
+.card-root.killed .card-itemrow,
+.card-root.killed .title 
+{
+  color: #666666;
+}
+
+.card-root .card-itemrow
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-root .vertically-center
+{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.card-root .card-itemrow .left
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-root .card-itemrow .right
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

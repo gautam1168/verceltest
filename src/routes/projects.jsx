@@ -4,8 +4,8 @@ import Button from "../components/button";
 import Icon from "../components/icon";
 import "./projects.css";
 import Dropdown from "../components/dropdown";
-import Badge from "../components/badge";
 import { useEffect, useState } from "react";
+import Card from "../components/card";
 
 function useTestnet()
 {
@@ -21,187 +21,13 @@ function useTestnet()
 
 export default function Projects()
 {
-  const getChainImage = (data, index) => {
-    let image = null;
-    switch(data.chain)
-    {
-      case "alchemy":
-        image = (<img src="/Blockchains/Alchemy.png"></img>);
-        break;
-      case "arbitrum":
-        image = (<img src="/Blockchains/Arbitrum.png"></img>);
-        break;
-      case "ethereum":
-        image = (<img src="/Blockchains/Ethereum.png"></img>);
-        break;
-      case "fantom":
-        image = (<img src="/Blockchains/Fantom.png"></img>);
-        break;
-      case "optimism":
-        image = (<img src="/Blockchains/Optimism.png"></img>);
-        break;
-      case "polygon":
-        image = (<img src="/Blockchains/Polygon.png"></img>);
-        break;
-      default:
-        image = data.chain;
-    }
-
-    return (
-      <div 
-        style={{left: (20 * index) + 'px' }}
-        className="blockchain-logo" 
-        key={data.chain}
-      >
-        {image}
-      </div>
-    );
-  };
-
-  const getStatus = status => {
-    let classNames = "vertically-center typography-semibold-14";
-    let icon = null;
-    if (status == "RUNNING")
-    {
-      classNames += " typography-success-green-dark";
-      icon = <Icon name="tick" size="regular" color="success"/>
-    }
-    else if (status == "STOPPED")
-    {
-      classNames += " typography-graya";
-      icon = <Icon name="killed" size="regular" color="faded" />;
-    }
-    else if (status == "PENDING" || status == "STANDING")
-    {
-      classNames += " typography-warning-yellow";
-      icon = <Icon name="standinghourglass" size="regular" color="warning" />
-    }
-    else if (status == "FAILED")
-    {
-      classNames += " typography-failed-red";
-      icon = <Icon name="failed" size="regular" color="failed" />
-    }
-    else if (status == "CLONING")
-    {
-      classNames += " typography-cloning-purple";
-      icon = <Icon name="cloning" size="regular" color="purple" />
-    }
-
-    if (status == "STOPPED")
-    {
-      status = "KILLED";
-    }
-    else if (status == "PENDING")
-    {
-      status = "UPDATING";
-    }
-
-    return (
-      <span className={classNames}>
-        {icon}{status}
-      </span>
-    );
-  }
-
   const { testnet, shownIndices, setShownIndices } = useTestnet();
   let cards = "loading..."; 
   if (testnet)
   {
     cards = shownIndices.map(index => {
       const item = testnet[index];
-      const updatedAt = new Date(item.updated_at);
-      const timeDiff = Date.now() - updatedAt;
-
-      let diffPhrase = "";
-      if (timeDiff < 1000 * 60)
-      {
-        diffPhrase = "a few seconds";
-      }
-      else if (timeDiff < 1000 * 60 * 60)
-      {
-        diffPhrase = Math.floor(timeDiff/(1000 * 60)) + " minutes ago";
-      }
-      else if (timeDiff < 1000 * 60 * 60 * 24)
-      {
-        diffPhrase = Math.floor(timeDiff/(1000 * 60 * 60)) + " hours ago";
-      }
-      else if (timeDiff < 1000 * 60 * 60 * 24 * 30)
-      {
-        diffPhrase = Math.floor(timeDiff/(1000 * 60 * 60 * 24)) + " days ago";
-      }
-      else if (timeDiff < 1000 * 60 * 60 * 24 * 30 * 12)
-      {
-        diffPhrase = Math.floor(timeDiff/ (1000 * 60 * 60 * 24 * 30)) + " months ago";
-      }
-      else
-      {
-        diffPhrase = "more than a year ago";
-      }
-
-      let rootClasses = "card-root";
-      if (item.status == "STOPPED") 
-      {
-        rootClasses += " killed";
-      }
-      else if (item.status == "FAILED")
-      {
-        rootClasses += " failed";
-      }
-
-      return (
-        <div className={rootClasses} key={item.id}>
-          <div className="card-itemrow">
-            <div className="left">
-              <span className="title typography-h2">{item.name}</span>
-              <Badge>
-                <span className="typography-semibold-14 typography-gray9">
-                  5321
-                </span>
-              </Badge>
-              
-            </div>
-            <div className="right">
-              { getStatus(item.status) }
-              <Icon name="dot" color="faded" size="extrasmall"></Icon>
-              <span className="vertically-center typography-semibold-14 typography-link-lightblue">
-                <Icon name="gear" size="regular" color="linkblue"></Icon>
-                Settings
-              </span>
-            </div>
-          </div>
-          <div className="card-itemrow">
-            <div className="left">
-              <span className="typography-medium-14">
-                {item.testnet_off_chain_actors.length} off-chain actors
-              </span>
-              <Icon name="dot" color="faded" size="extrasmall"></Icon>
-              <span className="typography-medium-14">
-                {item.testnet_chains.length} Blockchain
-              </span>
-              <span className="logo-group">
-                {item.testnet_chains.map(getChainImage)}
-              </span>
-            </div>
-            <div className="right">
-              <Icon name="clock" size="regular" color="faded" />
-              <span className="typography-graya typography-medium-13">
-                Modified {diffPhrase}
-              </span>
-            </div>
-          </div>
-          {
-            item.status == "PENDING" && (<div className="card-itemrow">
-              <div className="left">
-                <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-                <span className="typography-warning-yellow typography-medium-14">{item.testnet_off_chain_actors.length} off chain updating</span>
-                <Icon name="dot" color="faded" size="extrasmall"></Icon>
-                <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-                <span className="typography-warning-yellow typography-medium-14">{item.testnet_chains.length} Blockchains updating</span>
-              </div>
-            </div>)
-          }
-        </div>
-      );
+      return (<Card config={item}></Card>);
     });
   }
 
@@ -243,7 +69,6 @@ export default function Projects()
   };
 
   const handleSort = (sort) => {
-    debugger
     setSelectedSort(sort);
     let newIndices = new Array(testnet.length).fill(0).map((it, i) => i);
     const filter = selectedFilter;
@@ -316,7 +141,9 @@ export default function Projects()
           />
         </div>
       </div>
-      <div className="cards-container">{cards}</div>
+      <div className="cards-container">
+        {cards}
+      </div>
     </div>
   </div>);
 }
