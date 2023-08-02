@@ -20,6 +20,11 @@ import { ReactComponent as Failed } from "../Icons/Failed.svg";
 import { ReactComponent as Clock } from "../Icons/Clock.svg";
 import { ReactComponent as All } from "../Icons/All status.svg";
 import { ReactComponent as Dot } from "../Icons/Dot.svg";
+import { ReactComponent as Projects } from "../Icons/Projects.svg";
+import { ReactComponent as Docs } from "../Icons/Docs.svg";
+import { ReactComponent as CheatSheet } from "../Icons/Command sheet.svg";
+import { ReactComponent as UserKey } from "../Icons/User key.svg";
+
 
 export default function Icon({ name, size, color })
 {
@@ -52,7 +57,11 @@ export default function Icon({ name, size, color })
     failed: Failed,
     clock: Clock,
     all: All,
-    dot: Dot
+    dot: Dot,
+    projects: Projects,
+    docs: Docs,
+    cheatsheet: CheatSheet,
+    userkey: UserKey
   };
 
   if (iconsComponents[name])

@@ -18,6 +18,12 @@
   height: 16px;
 }
 
+.icon-root.medium
+{
+  width: 12px;
+  height: 12px;
+}
+
 .icon-root.small
 {
   width: 8px;
