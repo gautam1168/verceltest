@@ -1,3 +1,4 @@
+// TODO: Add animation in dropdown chevrons
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        //  TODO: add path parameter to load the specific project
         path: "projects",
         element: <Projects />,
         loader: projectLoader
