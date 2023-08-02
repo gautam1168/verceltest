@@ -88,7 +88,7 @@ export default function Dropdown({ label, options, onChange, initialSelection })
       {label}
       <Button onClick={toggleDropdown} ref={togglerEl}>
         {selectedValue && (
-          <div className={"selecteditem " + textColors[selectedValue.color]}>
+          <div className={"selecteditem " + textColors[selectedValue.color] + " typography-semibold-14"}>
             {selectedValue.icon && (
               <Icon
                 name={selectedValue.icon}
