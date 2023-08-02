@@ -19,6 +19,7 @@ import { ReactComponent as Killed } from "../Icons/Killed.svg";
 import { ReactComponent as Failed } from "../Icons/Failed.svg";
 import { ReactComponent as Clock } from "../Icons/Clock.svg";
 import { ReactComponent as All } from "../Icons/All status.svg";
+import { ReactComponent as Dot } from "../Icons/Dot.svg";
 
 export default function Icon({ name, size, color })
 {
@@ -50,7 +51,8 @@ export default function Icon({ name, size, color })
     killed: Killed,
     failed: Failed,
     clock: Clock,
-    all: All
+    all: All,
+    dot: Dot
   };
 
   if (iconsComponents[name])

@@ -102,6 +102,7 @@ export default function Projects()
             </div>
             <div className="right">
               { getStatus(item.status) }
+              <Icon name="dot" color="faded" size="extrasmall"></Icon>
               <span className="vertically-center typography-semibold-14 typography-link-lightblue">
                 <Icon name="gear" size="regular" color="linkblue"></Icon>
                 Settings
@@ -111,6 +112,7 @@ export default function Projects()
           <div className="card-itemrow">
             <div className="left">
             <span>{item.testnet_off_chain_actors.length} off chain actors</span>
+            <Icon name="dot" color="faded" size="extrasmall"></Icon>
             <span>{item.testnet_chains.length} Blockchain</span>
             { item.testnet_chains.map(getChainImage) }
             </div>
@@ -157,6 +159,7 @@ export default function Projects()
             options={filterOptions}
             initialSelection={filterOptions[0]}
           />
+          <Icon name="dot" color="faded" size="extrasmall"></Icon>
           <Dropdown 
             label="Sort by:" 
             options={sortOptions} 

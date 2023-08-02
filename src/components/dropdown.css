@@ -10,6 +10,11 @@
   align-self: center;
 }
 
+.dropdown-root .selecteditem .icon-root > svg
+{
+  left: 0;
+}
+
 .dropdown-list
 {
   position: absolute;

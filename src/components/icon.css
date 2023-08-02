@@ -1,11 +1,13 @@
 .icon-root
 {
   display: inline-block;
+  position: relative;
 }
 
 .icon-root svg
 {
   display: inline;
+  position: absolute;
   width: 100% !important;
   height: 100% !important;
 }
@@ -20,6 +22,12 @@
 {
   width: 8px;
   height: 8px;
+}
+
+.icon-root.extrasmall
+{
+  width: 4px;
+  height: 4px;
 }
 
 .icon-root.success svg path
