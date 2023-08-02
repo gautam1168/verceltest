@@ -5,6 +5,19 @@ import Icon from "../components/icon";
 import "./projects.css";
 import Dropdown from "../components/dropdown";
 import Badge from "../components/badge";
+import { useState } from "react";
+
+function useTestnet()
+{
+  const { projects } = useLoaderData();
+  const numTestnets = Object.keys(projects.testnet).length;
+  const [shownIndices, setShownIndices] = useState(new Array(numTestnets).fill(0).map((it, i) => i));
+  return {
+    testnet: projects.testnet,
+    shownIndices,
+    setShownIndices
+  };
+}
 
 export default function Projects()
 {
@@ -64,11 +77,12 @@ export default function Projects()
     );
   }
 
-  const { projects } = useLoaderData();
+  const { testnet, shownIndices, setShownIndices } = useTestnet();
   let cards = "loading..."; 
-  if (projects.testnet)
+  if (testnet)
   {
-    cards = Object.values(projects.testnet).map(item => {
+    cards = shownIndices.map(index => {
+      const item = testnet[index];
       const updatedAt = new Date(item.updated_at);
       const timeDiff = Date.now() - updatedAt;
 
@@ -147,12 +161,12 @@ export default function Projects()
   }
 
   const filterOptions = [
-    { label: "All", icon: "all", color: "linkblue"  },
-    { label: "Running", icon: "tick", color: "success" },
-    { label: "Standing up", icon: "standinghourglass", color: "warning" },
-    { label: "Updating", icon: "standinghourglass", color: "warning" },
-    { label: "Failed", icon: "failed", color: "failed" },
-    { label: "Killed", icon: "killed", color: "faded" }
+    { value: "ALL", label: "All", icon: "all", color: "linkblue"  },
+    { value: "RUNNING", label: "Running", icon: "tick", color: "success" },
+    { value: "STANDING", label: "Standing up", icon: "standinghourglass", color: "warning" },
+    { value: "PENDING", label: "Updating", icon: "standinghourglass", color: "warning" },
+    { value: "FAILED", label: "Failed", icon: "failed", color: "failed" },
+    { value: "STOPPED", label: "Killed", icon: "killed", color: "faded" }
   ];
 
   const sortOptions = [
@@ -162,6 +176,21 @@ export default function Projects()
     { label: "Date created" },
     { label: "Last modified" },
   ];
+
+  const handleFilter = (filter) => {
+    const newIndices = new Array(testnet.length).fill(0).map((it, i) => i);
+    if (filter.value == "ALL")
+    {
+      setShownIndices(newIndices)
+    }
+    else 
+    {
+      const filteredIndices = newIndices.filter(it => 
+        testnet[it].status == filter.value 
+      );
+      setShownIndices(filteredIndices);
+    }
+  };
 
   return (<div className="projects-root">
     <Sidebar />
@@ -183,6 +212,7 @@ export default function Projects()
             label="Filter by:" 
             options={filterOptions}
             initialSelection={filterOptions[0]}
+            onChange={handleFilter}
           />
           <Icon name="dot" color="faded" size="extrasmall"></Icon>
           <Dropdown 

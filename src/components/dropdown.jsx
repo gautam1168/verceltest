@@ -52,6 +52,10 @@ export default function Dropdown({ label, options, onChange, initialSelection })
   const handleSelect = (item) => {
     toggleDropdown();
     setSelectedValue(item);
+    if (onChange)
+    {
+      onChange(item);
+    }
   }
 
   if (isOpen) {
