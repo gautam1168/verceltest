@@ -30,7 +30,6 @@ function getAge(updated_at)
   return diffPhrase;
 }
 
-
 export default function Card({ config })
 {
   const getChainImage = (data, index) => {

@@ -12,24 +12,18 @@ function useTestnet()
   const { projects } = useLoaderData();
   const numTestnets = Object.keys(projects.testnet).length;
   const [shownIndices, setShownIndices] = useState(new Array(numTestnets).fill(0).map((it, i) => i));
-  return {
-    testnet: projects.testnet,
+  return [
+    projects.testnet,
     shownIndices,
     setShownIndices
-  };
+  ];
 }
 
 export default function Projects()
 {
-  const { testnet, shownIndices, setShownIndices } = useTestnet();
-  let cards = "loading..."; 
-  if (testnet)
-  {
-    cards = shownIndices.map(index => {
-      const item = testnet[index];
-      return (<Card config={item}></Card>);
-    });
-  }
+  const [ testnet, shownIndices, setShownIndices ] = useTestnet();
+  const [selectedFilter, setSelectedFilter] = useState();
+  const [selectedSort, setSelectedSort] = useState();
 
   const filterOptions = [
     { value: "ALL", label: "All", icon: "all", color: "linkblue"  },
@@ -48,65 +42,56 @@ export default function Projects()
     { value: "updated_at", sense: "ASC", label: "Last modified" },
   ];
 
-  const [selectedFilter, setSelectedFilter] = useState();
-  const [selectedSort, setSelectedSort] = useState();
+  const handleSortAndFilter = (filterconf, sortconf) => {
+    setSelectedSort(sortconf);
+    setSelectedFilter(filterconf);
 
-
-  const handleFilter = (filter) => {
-    setSelectedFilter(filter);
-    const newIndices = new Array(testnet.length).fill(0).map((it, i) => i);
-    if (filter.value == "ALL")
-    {
-      setShownIndices(newIndices)
-    }
-    else 
-    {
-      const filteredIndices = newIndices.filter(it => 
-        testnet[it].status == filter.value 
-      );
-      setShownIndices(filteredIndices);
-    }
-  };
-
-  const handleSort = (sort) => {
-    setSelectedSort(sort);
     let newIndices = new Array(testnet.length).fill(0).map((it, i) => i);
-    const filter = selectedFilter;
-    if (filter.value !== "ALL")
+    if (filterconf.value !== "ALL")
     {
-      newIndices = newIndices.filter(it => testnet[it].status == filter.value);
+      newIndices = newIndices.filter(it => testnet[it].status == filterconf.value);
     }
 
-    if (sort.value.endsWith("_at"))
+    // TODO store the dates as dates to remove this if branch
+    if (sortconf.value.endsWith("_at"))
     {
       newIndices.sort((a, b) => {
-        return new Date(testnet[a][sort.value]) < new Date(testnet[b][sort.value]) ? -1 : 1;
+        return new Date(testnet[a][sortconf.value]) < new Date(testnet[b][sortconf.value]) ? -1 : 1;
       });
     }
-    else if (sort.sense == "ASC")
+    else if (sortconf.sense == "ASC")
     {
       newIndices.sort((a, b) => {
-        return testnet[a][sort.value] < testnet[b][sort.value] ? -1 : 1;
+        return testnet[a][sortconf.value] < testnet[b][sortconf.value] ? -1 : 1;
       });
     }
-    else if (sort.sense == "DEC")
+    else if (sortconf.sense == "DEC")
     {
       newIndices.sort((a, b) => {
-        return testnet[a][sort.value] > testnet[b][sort.value] ? -1 : 1;
+        return testnet[a][sortconf.value] > testnet[b][sortconf.value] ? -1 : 1;
       });
     }
     setShownIndices(newIndices);
   }
-  
+
+  // TODO maybe chain these and do the handleSortAndFilter in the handler
   useEffect(() => {
+    let modifiedFilters = false;
     if (!selectedFilter)
     {
+      modifiedFilters = true;
       setSelectedFilter(filterOptions[0]);
     }
 
     if (!selectedSort)
     {
+      modifiedFilters = true;
       setSelectedSort(sortOptions[0]);
+    }
+
+    if (modifiedFilters)
+    {
+      handleSortAndFilter(filterOptions[0], sortOptions[0]);
     }
   }, []);
 
@@ -130,19 +115,24 @@ export default function Projects()
             label="Filter by:" 
             options={filterOptions}
             selectedValue={selectedFilter}
-            onChange={handleFilter}
+            onChange={(filterconf) => handleSortAndFilter(filterconf, selectedSort)}
           />
           <Icon name="dot" color="faded" size="extrasmall"></Icon>
           <Dropdown 
             label="Sort by:" 
             options={sortOptions} 
             selectedValue={selectedSort}
-            onChange={handleSort}
+            onChange={(sortconf) => handleSortAndFilter(selectedFilter, sortconf)}
           />
         </div>
       </div>
       <div className="cards-container">
-        {cards}
+        {
+          shownIndices.map(index => {
+            const item = testnet[index];
+            return (<Card key={item.id} config={item}></Card>);
+          })
+        }
       </div>
     </div>
   </div>);
