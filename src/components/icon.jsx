@@ -1,4 +1,4 @@
-import { createElement } from "react";
+import { createElement, useCallback } from "react";
 
 import "./icon.css";
 
@@ -26,7 +26,7 @@ import { ReactComponent as CheatSheet } from "../Icons/Command sheet.svg";
 import { ReactComponent as UserKey } from "../Icons/User key.svg";
 
 
-export default function Icon({ name, size, color })
+export default function Icon({ name, size, color, onClick })
 {
   let classNames = "icon-root";
   if (size)
@@ -37,6 +37,11 @@ export default function Icon({ name, size, color })
   if (color)
   {
     classNames += " " + color;
+  }
+
+  if (onClick)
+  {
+    classNames += " clickable"
   }
 
   const iconsComponents = {
@@ -64,11 +69,17 @@ export default function Icon({ name, size, color })
     userkey: UserKey
   };
 
+  let clickHandler = useCallback(() => {});
+  if (onClick)
+  {
+    clickHandler = onClick;
+  }
+
   if (iconsComponents[name])
   {
     const iconNode = createElement(iconsComponents[name]);
     return (
-      <span className={classNames}>
+      <span className={classNames} onClick={clickHandler}>
         {iconNode}
       </span>
     );

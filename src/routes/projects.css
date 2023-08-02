@@ -93,6 +93,14 @@
 .project-data-controls .left
 {
   display: flex;
+  gap: 20px;
+}
+
+.project-data-controls .addtestnet-content
+{
+  display: flex; 
+  gap: 5px; 
+  align-items: center;
 }
 
 .project-data-controls .right

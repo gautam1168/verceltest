@@ -151,7 +151,12 @@ export default function Projects()
           <div className="typography-h2">
             Testnets (8)
           </div>
-          <Button variant="primary" size="large">+ New Testnet</Button>
+          <Button variant="primary" size="large"> 
+            <div className="addtestnet-content">
+              <Icon name="add" color="linkblue" size="regular"></Icon>
+              New Testnet
+            </div>
+          </Button>
         </div>
         <div className="right">
           <Dropdown 

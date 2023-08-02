@@ -51,8 +51,10 @@
   align-items: center;
 }
 
+.sidebar-root .menuitem.level-2:hover,
 .sidebar-root .menuitem.active
 {
+  cursor: pointer;
   background-color: #f6f8fa;
 }
 

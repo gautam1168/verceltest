@@ -38,3 +38,15 @@
   margin: 2px;
   gap: 10px;
 }
+
+.dropdown-list .listitem.selected
+{
+  background-color: #f6f8fa;
+}
+
+.dropdown-list .listitem:hover
+{
+  background-color: #f6f8fa;
+  cursor: pointer;
+  border-radius: 4px;
+}

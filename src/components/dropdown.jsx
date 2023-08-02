@@ -64,12 +64,15 @@ export default function Dropdown({ label, options, onChange, initialSelection })
       >
         {
           options.map(it => {
-            
-
+            let selectedclass = "";
+            if (it.label == selectedValue?.label)
+            {
+              selectedclass = " selected ";
+            }
             return (
               <div 
                 key={it.label} 
-                className={"listitem " + textColors[it.color]}
+                className={"listitem " + selectedclass + textColors[it.color]}
                 onClick={() => handleSelect(it)}
               >
                 {it.icon && <Icon name={it.icon} size="regular" color={it.color}></Icon>}
@@ -102,7 +105,7 @@ export default function Dropdown({ label, options, onChange, initialSelection })
           </div>)
         }
       </Button>
-      <Icon name="chevdown" size="small"></Icon>
+      <Icon name="chevdown" size="small" onClick={toggleDropdown}></Icon>
       {dropdownlist}
     </div>
   );

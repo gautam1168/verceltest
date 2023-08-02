@@ -1,5 +1,6 @@
 .button-root
 {
+  cursor: pointer;
   background-color: transparent;
   border: none;
 }
