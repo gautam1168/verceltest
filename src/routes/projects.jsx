@@ -291,7 +291,7 @@ export default function Projects()
       <div className="project-data-controls">
         <div className="left">
           <div className="typography-h2">
-            Testnets (8)
+            Testnets ({testnet.length})
           </div>
           <Button variant="primary" size="large"> 
             <div className="addtestnet-content">
