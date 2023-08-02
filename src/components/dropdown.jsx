@@ -4,18 +4,11 @@ import Button from "./button";
 import "./dropdown.css";
 import Icon from "./icon";
 
-export default function Dropdown({ label, options, onChange, initialSelection })
+export default function Dropdown({ label, options, onChange, selectedValue })
 {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(null);
   const togglerEl = useRef(null);
   const dropdownRootEl = useRef(null);
-
-  useEffect(() => {
-    if (!selectedValue) {
-      setSelectedValue(initialSelection);
-    }
-  }, [initialSelection]);
 
   useEffect(() => {
     if (isOpen)
@@ -51,7 +44,6 @@ export default function Dropdown({ label, options, onChange, initialSelection })
 
   const handleSelect = (item) => {
     toggleDropdown();
-    setSelectedValue(item);
     if (onChange)
     {
       onChange(item);

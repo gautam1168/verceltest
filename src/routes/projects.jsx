@@ -5,7 +5,7 @@ import Icon from "../components/icon";
 import "./projects.css";
 import Dropdown from "../components/dropdown";
 import Badge from "../components/badge";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function useTestnet()
 {
@@ -170,14 +170,19 @@ export default function Projects()
   ];
 
   const sortOptions = [
-    { label: "Name A-Z" },
-    { label: "Name Z-A" },
-    { label: "Status" },
-    { label: "Date created" },
-    { label: "Last modified" },
+    { value: "name", sense: "ASC", label: "Name A-Z" },
+    { value: "name", sense: "DEC", label: "Name Z-A" },
+    { value: "status", sense: "ASC", label: "Status" },
+    { value: "created_at", sense: "ASC", label: "Date created" },
+    { value: "updated_at", sense: "ASC", label: "Last modified" },
   ];
 
+  const [selectedFilter, setSelectedFilter] = useState();
+  const [selectedSort, setSelectedSort] = useState();
+
+
   const handleFilter = (filter) => {
+    setSelectedFilter(filter);
     const newIndices = new Array(testnet.length).fill(0).map((it, i) => i);
     if (filter.value == "ALL")
     {
@@ -191,6 +196,49 @@ export default function Projects()
       setShownIndices(filteredIndices);
     }
   };
+
+  const handleSort = (sort) => {
+    debugger
+    setSelectedSort(sort);
+    let newIndices = new Array(testnet.length).fill(0).map((it, i) => i);
+    const filter = selectedFilter;
+    if (filter.value !== "ALL")
+    {
+      newIndices = newIndices.filter(it => testnet[it].status == filter.value);
+    }
+
+    if (sort.value.endsWith("_at"))
+    {
+      newIndices.sort((a, b) => {
+        return new Date(testnet[a][sort.value]) < new Date(testnet[b][sort.value]) ? -1 : 1;
+      });
+    }
+    else if (sort.sense == "ASC")
+    {
+      newIndices.sort((a, b) => {
+        return testnet[a][sort.value] < testnet[b][sort.value] ? -1 : 1;
+      });
+    }
+    else if (sort.sense == "DEC")
+    {
+      newIndices.sort((a, b) => {
+        return testnet[a][sort.value] > testnet[b][sort.value] ? -1 : 1;
+      });
+    }
+    setShownIndices(newIndices);
+  }
+  
+  useEffect(() => {
+    if (!selectedFilter)
+    {
+      setSelectedFilter(filterOptions[0]);
+    }
+
+    if (!selectedSort)
+    {
+      setSelectedSort(sortOptions[0]);
+    }
+  }, []);
 
   return (<div className="projects-root">
     <Sidebar />
@@ -211,14 +259,15 @@ export default function Projects()
           <Dropdown 
             label="Filter by:" 
             options={filterOptions}
-            initialSelection={filterOptions[0]}
+            selectedValue={selectedFilter}
             onChange={handleFilter}
           />
           <Icon name="dot" color="faded" size="extrasmall"></Icon>
           <Dropdown 
             label="Sort by:" 
             options={sortOptions} 
-            initialSelection={sortOptions[0]}
+            selectedValue={selectedSort}
+            onChange={handleSort}
           />
         </div>
       </div>
