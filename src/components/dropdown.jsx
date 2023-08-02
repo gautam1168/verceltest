@@ -17,8 +17,9 @@ export default function Dropdown({ label, options, onChange, selection })
       console.log("dropdown: ", rect)
       if (dropdownRootEl.current)
       {
+        const dropdownRect = dropdownRootEl.current.getBoundingClientRect();
         let top = rect.top + rect.height + 1;
-        let left = rect.left;
+        let left = rect.right - dropdownRect.width;
         console.log("Dropdown el styles: ", top, left);
         dropdownRootEl.current.style.top = `${top}px`;
         dropdownRootEl.current.style.left = `${left}px`;
@@ -41,7 +42,24 @@ export default function Dropdown({ label, options, onChange, selection })
         ref={dropdownRootEl} 
         onBlur={toggleDropdown}
       >
-        {options.map(it => <div key={it.label}>{it.label}</div>)}
+        {
+          options.map(it => {
+            const textColors = {
+              linkblue: "typography-link-lightblue",
+              success: "typography-success-green-dark",
+              warning: "typography-warning-yellow",
+              failed: "typography-failed-red",
+              faded: "typography-graya",
+            };
+
+            return (
+              <div key={it.label} className={"listitem " + textColors[it.color]}>
+                {it.icon && <Icon name={it.icon} size="regular" color={it.color}></Icon>}
+                {it.label}
+              </div>
+            );
+          })
+        }
       </div>
       , document.body
     );

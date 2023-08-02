@@ -40,3 +40,8 @@
 {
   fill: #2f80ed;
 }
+
+.icon-root.failed svg path
+{
+  fill: #cd3a4c;
+}

@@ -125,12 +125,12 @@ export default function Projects()
   }
 
   const filterOptions = [
-    { label: "All" },
-    { label: "Running" },
-    { label: "Standing up" },
-    { label: "Updating" },
-    { label: "Failed" },
-    { label: "Killed" }
+    { label: "All", icon: "all", color: "linkblue"  },
+    { label: "Running", icon: "tick", color: "success" },
+    { label: "Standing up", icon: "standinghourglass", color: "warning" },
+    { label: "Updating", icon: "standinghourglass", color: "warning" },
+    { label: "Failed", icon: "failed", color: "failed" },
+    { label: "Killed", icon: "killed", color: "faded" }
   ];
 
   const sortOptions = [
@@ -152,8 +152,14 @@ export default function Projects()
           <Button variant="primary" size="large">+ New Testnet</Button>
         </div>
         <div className="right">
-          <Dropdown label="Filter by:" options={filterOptions}></Dropdown>
-          <Dropdown label="Sort by:" options={sortOptions}></Dropdown>
+          <Dropdown 
+            label="Filter by:" 
+            options={filterOptions}
+          />
+          <Dropdown 
+            label="Sort by:" 
+            options={sortOptions} 
+          />
         </div>
       </div>
       <div className="cards-container">{cards}</div>
