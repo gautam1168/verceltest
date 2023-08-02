@@ -31,7 +31,8 @@ export default function Projects()
     { value: "STANDING", label: "Standing up", icon: "standinghourglass", color: "warning" },
     { value: "PENDING", label: "Updating", icon: "standinghourglass", color: "warning" },
     { value: "FAILED", label: "Failed", icon: "failed", color: "failed" },
-    { value: "STOPPED", label: "Killed", icon: "killed", color: "faded" }
+    { value: "STOPPED", label: "Killed", icon: "killed", color: "faded" },
+    { value: "CLONING", label: "Cloning", icon: "cloning", color: "purple" }
   ];
 
   const sortOptions = [
