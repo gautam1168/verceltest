@@ -1,6 +1,13 @@
-.dropdown-root
+.dropdown-root .selecteditem
 {
   display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.dropdown-root .selecteditem .icon-root
+{
+  align-self: center;
 }
 
 .dropdown-list
@@ -24,4 +31,5 @@
   align-items: center;
   justify-content: center;
   margin: 2px;
+  gap: 10px;
 }

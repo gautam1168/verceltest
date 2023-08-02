@@ -155,10 +155,12 @@ export default function Projects()
           <Dropdown 
             label="Filter by:" 
             options={filterOptions}
+            initialSelection={filterOptions[0]}
           />
           <Dropdown 
             label="Sort by:" 
             options={sortOptions} 
+            initialSelection={sortOptions[0]}
           />
         </div>
       </div>

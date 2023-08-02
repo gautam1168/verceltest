@@ -85,4 +85,5 @@
 .project-data-controls .right
 {
   display: flex;
+  gap: 10px;
 }

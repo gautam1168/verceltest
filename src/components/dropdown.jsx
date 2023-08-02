@@ -4,11 +4,18 @@ import Button from "./button";
 import "./dropdown.css";
 import Icon from "./icon";
 
-export default function Dropdown({ label, options, onChange, selection })
+export default function Dropdown({ label, options, onChange, initialSelection })
 {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedValue, setSelectedValue] = useState(null);
   const togglerEl = useRef(null);
   const dropdownRootEl = useRef(null);
+
+  useEffect(() => {
+    if (!selectedValue) {
+      setSelectedValue(initialSelection);
+    }
+  }, [initialSelection]);
 
   useEffect(() => {
     if (isOpen)
@@ -34,6 +41,19 @@ export default function Dropdown({ label, options, onChange, selection })
     setIsOpen(curr => !curr);
   }
 
+  const textColors = {
+    linkblue: "typography-link-lightblue",
+    success: "typography-success-green-dark",
+    warning: "typography-warning-yellow",
+    failed: "typography-failed-red",
+    faded: "typography-graya",
+  };
+
+  const handleSelect = (item) => {
+    toggleDropdown();
+    setSelectedValue(item);
+  }
+
   if (isOpen) {
     dropdownlist = createPortal(
       <div 
@@ -44,16 +64,14 @@ export default function Dropdown({ label, options, onChange, selection })
       >
         {
           options.map(it => {
-            const textColors = {
-              linkblue: "typography-link-lightblue",
-              success: "typography-success-green-dark",
-              warning: "typography-warning-yellow",
-              failed: "typography-failed-red",
-              faded: "typography-graya",
-            };
+            
 
             return (
-              <div key={it.label} className={"listitem " + textColors[it.color]}>
+              <div 
+                key={it.label} 
+                className={"listitem " + textColors[it.color]}
+                onClick={() => handleSelect(it)}
+              >
                 {it.icon && <Icon name={it.icon} size="regular" color={it.color}></Icon>}
                 {it.label}
               </div>
@@ -66,10 +84,23 @@ export default function Dropdown({ label, options, onChange, selection })
   }
 
   return (
-    <div className=".dropdown-root">
+    <div className="dropdown-root typography-gray9 typography-medium-14">
       {label}
       <Button onClick={toggleDropdown} ref={togglerEl}>
-        Selected value
+        {selectedValue && (
+          <div className={"selecteditem " + textColors[selectedValue.color]}>
+            {selectedValue.icon && (
+              <Icon
+                name={selectedValue.icon}
+                size="regular"
+                color={selectedValue.color}
+              >
+              </Icon>
+            )
+            }
+            {selectedValue.label}
+          </div>)
+        }
       </Button>
       <Icon name="chevdown" size="small"></Icon>
       {dropdownlist}
