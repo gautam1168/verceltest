@@ -37,7 +37,13 @@
   outline: none;
 }
 
-.blockchain-logo
+.card-root .logo-group
+{
+  position: relative;
+  height: 28px;
+}
+
+.logo-group .blockchain-logo
 {
   height: 28px;
   width: 28px;
@@ -46,9 +52,11 @@
   align-items: center;
   justify-content: center;
   border: solid 1px #dddddd;
+  position: absolute;
+  background-color: #ffffff;
 }
 
-.blockchain-logo > img
+.logo-group .blockchain-logo > img
 {
   width: 16px;
   height: 16px;

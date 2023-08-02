@@ -21,7 +21,7 @@ function useTestnet()
 
 export default function Projects()
 {
-  const getChainImage = data => {
+  const getChainImage = (data, index) => {
     let image = null;
     switch(data.chain)
     {
@@ -47,7 +47,15 @@ export default function Projects()
         image = data.chain;
     }
 
-    return <div className="blockchain-logo" key={data.chain}>{image}</div>
+    return (
+      <div 
+        style={{left: (20 * index) + 'px' }}
+        className="blockchain-logo" 
+        key={data.chain}
+      >
+        {image}
+      </div>
+    );
   };
 
   const getStatus = status => {
@@ -161,7 +169,9 @@ export default function Projects()
               <span>{item.testnet_off_chain_actors.length} off chain actors</span>
               <Icon name="dot" color="faded" size="extrasmall"></Icon>
               <span>{item.testnet_chains.length} Blockchain</span>
-              {item.testnet_chains.map(getChainImage)}
+              <span className="logo-group">
+                {item.testnet_chains.map(getChainImage)}
+              </span>
             </div>
             <div className="right">
               <Icon name="clock" size="regular" color="faded" />

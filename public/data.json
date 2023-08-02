@@ -29,6 +29,16 @@
           "chain": "ethereum",
           "status": "RUNNING",
           "__typename": "testnet_chain"
+        },
+        {
+          "chain": "arbitrum",
+          "status": "RUNNING",
+          "__typename": "testnet_chain"
+        },
+{
+  "chain": "polygon",
+          "status": "RUNNING",
+          "__typename": "testnet_chain"
         }
       ],
       "testnet_image": {
@@ -95,6 +105,16 @@
           "chain": "ethereum",
           "status": "RUNNING",
           "__typename": "testnet_chain"
+        },
+        {
+          "chain": "alchemy",
+          "status": "RUNNING",
+          "__typename": "testnet_chain"
+        },
+        {
+          "chain": "fantom",
+          "status": "RUNNING",
+          "__typename": "testnet_chain"
         }
       ],
       "testnet_image": {
@@ -153,6 +173,11 @@
       "testnet_chains": [
         {
           "chain": "ethereum",
+          "status": "FAILED",
+          "__typename": "testnet_chain"
+        },
+        {
+          "chain": "optimism",
           "status": "FAILED",
           "__typename": "testnet_chain"
         }
