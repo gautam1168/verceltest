@@ -63,7 +63,7 @@ export default function Projects()
       classNames += " typography-graya";
       icon = <Icon name="killed" size="regular" color="faded" />;
     }
-    else if (status == "PENDING")
+    else if (status == "PENDING" || status == "STANDING")
     {
       classNames += " typography-warning-yellow";
       icon = <Icon name="standinghourglass" size="regular" color="warning" />
@@ -77,6 +77,10 @@ export default function Projects()
     if (status == "STOPPED")
     {
       status = "KILLED";
+    }
+    else if (status == "PENDING")
+    {
+      status = "UPDATING";
     }
 
     return (
@@ -114,7 +118,7 @@ export default function Projects()
       }
       else if (timeDiff < 1000 * 60 * 60 * 24 * 30 * 12)
       {
-        diffPhrase = Math.floor(timeDiff/ (1000 * 60 * 60 * 24 * 30)) + "months ago";
+        diffPhrase = Math.floor(timeDiff/ (1000 * 60 * 60 * 24 * 30)) + " months ago";
       }
       else
       {
@@ -164,6 +168,17 @@ export default function Projects()
               <span className="typography-graya">Modified {diffPhrase}</span>
             </div>
           </div>
+          {
+            item.status == "PENDING" && (<div className="card-itemrow">
+              <div className="left">
+                <Icon name="standinghourglass" color="warning" size="regular"></Icon>
+                <span className="typography-warning-yellow">{item.testnet_off_chain_actors.length} off chain updating</span>
+                <Icon name="dot" color="faded" size="extrasmall"></Icon>
+                <Icon name="standinghourglass" color="warning" size="regular"></Icon>
+                <span className="typography-warning-yellow">{item.testnet_chains.length} Blockchains updating</span>
+              </div>
+            </div>)
+          }
         </div>
       );
     });

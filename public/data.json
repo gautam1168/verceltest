@@ -821,14 +821,14 @@
     {
       "name": "meat-fly",
       "id": "7fc34a35-e3c7-4df6-9f46-0a02cf0660ac",
-      "status": "RUNNING",
+      "status": "STANDING",
       "endpoint": "3.108.40.119",
       "created_at": "2022-10-26T15:48:48.925336+00:00",
       "updated_at": "2022-10-27T05:23:48.236369+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
-          "status": "RUNNING",
+          "status": "STANDING",
           "__typename": "testnet_off_chain_actor"
         },
         {
