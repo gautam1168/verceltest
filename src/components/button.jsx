@@ -1,7 +1,10 @@
+import { useCallback, forwardRef } from "react";
 import "./button.css";
 
-export default function Button({children, variant, size })
+export default forwardRef(function Button({children, variant, size, onClick }, ref)
 {
+  const noOpHandler = useCallback(() => {});
+  const clickHandler = onClick || noOpHandler;
   let buttonClasses = "button-root";
   if (size == "regular")
   {
@@ -22,8 +25,8 @@ export default function Button({children, variant, size })
   }
 
   return (
-    <button className={buttonClasses}>
+    <button className={buttonClasses} onClick={clickHandler} ref={ref}>
       {children}
     </button>
   );
-}
+})

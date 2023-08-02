@@ -124,6 +124,23 @@ export default function Projects()
     });
   }
 
+  const filterOptions = [
+    { label: "All" },
+    { label: "Running" },
+    { label: "Standing up" },
+    { label: "Updating" },
+    { label: "Failed" },
+    { label: "Killed" }
+  ];
+
+  const sortOptions = [
+    { label: "Name A-Z" },
+    { label: "Name Z-A" },
+    { label: "Status" },
+    { label: "Date created" },
+    { label: "Last modified" },
+  ];
+
   return (<div className="projects-root">
     <Sidebar />
     <div className="projects-body">
@@ -135,8 +152,8 @@ export default function Projects()
           <Button variant="primary" size="large">+ New Testnet</Button>
         </div>
         <div className="right">
-          <Dropdown label="Filter by:" ></Dropdown>
-          <Dropdown label="Sort by:" ></Dropdown>
+          <Dropdown label="Filter by:" options={filterOptions}></Dropdown>
+          <Dropdown label="Sort by:" options={sortOptions}></Dropdown>
         </div>
       </div>
       <div className="cards-container">{cards}</div>
