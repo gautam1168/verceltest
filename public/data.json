@@ -79,7 +79,7 @@
     {
       "name": "furniture-protection",
       "id": "44b4eaf7-f439-43fb-ac49-ec03a34133d4",
-      "status": "RUNNING",
+      "status": "CLONING",
       "endpoint": "15.207.106.215",
       "created_at": "2022-10-27T09:37:06.367679+00:00",
       "updated_at": "2022-10-27T09:39:36.212997+00:00",

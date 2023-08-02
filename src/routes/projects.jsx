@@ -81,6 +81,11 @@ export default function Projects()
       classNames += " typography-failed-red";
       icon = <Icon name="failed" size="regular" color="failed" />
     }
+    else if (status == "CLONING")
+    {
+      classNames += " typography-cloning-purple";
+      icon = <Icon name="cloning" size="regular" color="purple" />
+    }
 
     if (status == "STOPPED")
     {
