@@ -1,13 +1,16 @@
 import Icon from "./icon";
 import Badge from "./badge";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 export default function Sidebar()
 {
   return (
     <div className="sidebar-root">
       <div className="cta typography-faded-1">
-        <Icon name="arrowleft" size="regular" color="faded-1"/>
-        Back to all projects
+        <Link to={'/projects'}> 
+          <Icon name="arrowleft" size="regular" color="faded-1"/>
+          Back to all projects
+        </Link>
       </div>
       <div className="separator"></div>
       <div className="menu">

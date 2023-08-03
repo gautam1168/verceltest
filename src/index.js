@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
-  RouterProvider
+  RouterProvider,
 } from "react-router-dom";
 
 import './index.css';
@@ -12,7 +12,8 @@ import ErrorPage from './error-page';
 
 import Root from "./routes/root";
 import { getProjects as projectLoader } from "./query";
-import Projects from "./routes/projects";
+import ProjectDetails from "./components/projects";
+import Project from "./routes/project";
 import Docs from './routes/docs';
 import CheatSheet from './routes/cheatsheet';
 
@@ -25,8 +26,14 @@ const router = createBrowserRouter([
       {
         //  TODO: add path parameter to load the specific project
         path: "projects",
-        element: <Projects />,
-        loader: projectLoader
+        element: <Project />,
+        children: [
+          {
+            path: ":projectId",
+            element: <ProjectDetails />,
+            loader: projectLoader
+          }
+        ]
       },
       {
         path: "docs",

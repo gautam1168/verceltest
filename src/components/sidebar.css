@@ -4,7 +4,7 @@
   border: solid 1px #dddddd;
 }
 
-.sidebar-root .cta
+.sidebar-root .cta a
 {
   height: 44px;
   display: flex;
@@ -13,6 +13,8 @@
   gap: 10px;
   padding: 0 20px;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--faded-1);
 }
 
 .sidebar-root .separator
