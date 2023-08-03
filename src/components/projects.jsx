@@ -1,8 +1,5 @@
 // TODO: Add library so manual handling of className is not needed
 // TODO: Final pass on styling
-// TODO: Use props for sidebar and navbar
-// TODO: Connect data to sidebar and hourglass thingies on card
-// TODO: Maybe make variables for card gaps etc?
 
 import "./projects.css";
 

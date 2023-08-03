@@ -5,7 +5,7 @@
 
 .projects-root .projects-body
 {
-  padding: 40px;
+  padding: var(--project-body-padding);
   padding-bottom: 0;
 }
 
@@ -16,7 +16,7 @@
 
 .projects-root .cards-container
 {
-  max-height: calc(100vh - 154px); /* TODO: Fix this using calc depending on height of navbar */
+  max-height: calc(100vh - var(--project-body-padding) - var(--typography-h2-lineheight) - var(--toolbar-bottom-margin)); 
   overflow-y: auto;
   max-width: 1078px;
   display: flex;
@@ -40,7 +40,7 @@
 .projects-root .project-data-controls
 {
   display: flex;
-  margin-bottom: 24px;
+  margin-bottom: var(--toolbar-bottom-margin);
   justify-content: space-between;
 }
 

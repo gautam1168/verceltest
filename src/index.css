@@ -16,6 +16,10 @@
   --failed-faint: #fdf7f8;
   --whimsy: #7B61FF;
   --dark: #222222;
+  --navbar-height: 60px;
+  --project-body-padding: 40px;
+  --toolbar-bottom-margin: 24px;
+  --typography-h2-lineheight: 28px;
 }
 
 body {
@@ -35,7 +39,7 @@ code {
 
 .typography-h2
 {
-  line-height: 28px;
+  line-height: var(--typography-h2-lineheight);
   font-size: 24px;
   font-weight: 700;
 }

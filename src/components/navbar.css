@@ -2,7 +2,7 @@
   background-color: var(--dark);
   display: flex;
   justify-content: space-between;
-  height: 60px;
+  height: var(--navbar-height);
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
