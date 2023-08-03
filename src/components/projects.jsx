@@ -8,12 +8,12 @@
 // TODO: Maybe make variables for card gaps etc?
 
 import "./projects.css";
+
 import Sidebar from "../components/sidebar";
 import Button from "../components/button";
 import Icon from "../components/icon";
 import Dropdown from "../components/dropdown";
 import Card from "../components/card";
-
 import { useProjectStore, filterOptions, sortOptions } from "../store";
 
 export default function Projects()

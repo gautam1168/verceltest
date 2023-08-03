@@ -1,8 +1,11 @@
+import "./sidebar.css";
+
+import { Link } from "react-router-dom";
+import { useCallback } from "react";
+
 import Icon from "./icon";
 import Badge from "./badge";
-import { Link } from "react-router-dom";
-import "./sidebar.css";
-import { useCallback } from "react";
+
 export default function Sidebar()
 {
   const noOp = useCallback(() => {alert("This feature is not implemented!")});

@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
 import "./navbar.css";
-import Icon from "./icon";
+
+import { Link } from "react-router-dom";
+
 import { ReactComponent as HarborLogo } from "../Icons/Harbor logo.svg";
+import Icon from "./icon";
+
 export default function Navbar()
 {
   return (

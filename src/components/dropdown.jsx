@@ -1,7 +1,9 @@
+import "./dropdown.css";
+
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+
 import Button from "./button";
-import "./dropdown.css";
 import Icon from "./icon";
 
 export default function Dropdown({ label, options, onChange, selectedValue })

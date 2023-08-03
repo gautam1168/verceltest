@@ -1,3 +1,5 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {
@@ -5,15 +7,15 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import './index.css';
+import Root from "./routes/root";
+import Docs from './routes/docs';
+import Project from "./routes/project";
+
+import { getProjects as projectLoader } from "./query";
+
 import reportWebVitals from './reportWebVitals';
 import ErrorPage from './error-page';
-
-import Root from "./routes/root";
-import { getProjects as projectLoader } from "./query";
 import ProjectDetails from "./components/projects";
-import Project from "./routes/project";
-import Docs from './routes/docs';
 import CheatSheet from './routes/cheatsheet';
 
 const router = createBrowserRouter([

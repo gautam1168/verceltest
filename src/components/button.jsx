@@ -1,5 +1,6 @@
-import { useCallback, forwardRef } from "react";
 import "./button.css";
+
+import { useCallback, forwardRef } from "react";
 
 export default forwardRef(function Button({children, variant, size, onClick }, ref)
 {

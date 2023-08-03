@@ -1,4 +1,5 @@
 import "./badge.css";
+
 export default function Badge({children})
 {
   return (

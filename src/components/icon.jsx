@@ -1,6 +1,7 @@
+import "./icon.css";
+
 import { createElement, useCallback } from "react";
 
-import "./icon.css";
 
 import { ReactComponent as Testnets } from "../Icons/Testnets.svg";
 import { ReactComponent as Star } from "../Icons/Star in project.svg";

@@ -1,4 +1,5 @@
 import "./card.css";
+
 import Badge from "../components/badge";
 import Icon from "../components/icon";
 
