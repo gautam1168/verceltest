@@ -14,13 +14,11 @@ export default function Dropdown({ label, options, onChange, selectedValue })
     if (isOpen)
     {
       const rect = togglerEl.current.getBoundingClientRect();
-      console.log("dropdown: ", rect)
       if (dropdownRootEl.current)
       {
         const dropdownRect = dropdownRootEl.current.getBoundingClientRect();
         let top = rect.top + rect.height + 1;
         let left = rect.right - dropdownRect.width;
-        console.log("Dropdown el styles: ", top, left);
         dropdownRootEl.current.style.top = `${top}px`;
         dropdownRootEl.current.style.left = `${left}px`;
         dropdownRootEl.current.focus();
