@@ -2,6 +2,7 @@ import "./sidebar.css";
 
 import { Link } from "react-router-dom";
 import { useCallback } from "react";
+import classNames from "classnames";
 
 import Icon from "./icon";
 import Badge from "./badge";
@@ -11,23 +12,17 @@ export default function Sidebar({ state })
   const noOp = useCallback(() => {alert("This feature is not implemented!")});
 
   const menuItems = state.sidebarItems.map(it => {
-    let classNames = "menuitem"
-    if (it.level == 2)
-    {
-      classNames += " level-2 typography-semibold-16";
-    }
-    else
-    {
-      classNames += " typography-semibold-14";
-    }
-
-    if (it.selected)
-    {
-      classNames += " active typography-link";
-    }
+    let menuClassNames = classNames({
+      "menuitem": true,
+      "level-2": it.level === 2,
+      "typography-semibold-16": it.level === 1,
+      "typography-semibold-14": it.level === 2,
+      "active": it.selected,
+      "typography-link": it.selected
+    });
 
     return (
-      <div className={classNames} onClick={noOp} key={it.label}>
+      <div className={menuClassNames} onClick={noOp} key={it.label}>
         <div className="left">
           <Icon name={it.prefixIcon} size="regular" color={it.selected ? 'linkblue' : 'faded-1'} />
           {it.label}

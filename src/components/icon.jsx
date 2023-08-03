@@ -1,6 +1,7 @@
 import "./icon.css";
 
 import { createElement, useCallback } from "react";
+import classNames from "classnames";
 
 
 import { ReactComponent as Testnets } from "../Icons/Testnets.svg";
@@ -29,21 +30,12 @@ import { ReactComponent as UserKey } from "../Icons/User key.svg";
 
 export default function Icon({ name, size, color, onClick })
 {
-  let classNames = "icon-root";
-  if (size)
-  {
-    classNames += " " + size;
-  }
-
-  if (color)
-  {
-    classNames += " " + color;
-  }
-
-  if (onClick)
-  {
-    classNames += " clickable"
-  }
+  let iconClassNames = classNames({
+    "icon-root": true,
+    [size]: true,
+    [color]: true,
+    "clickable": onClick
+  });
 
   const iconsComponents = {
     testnets: Testnets,
@@ -80,7 +72,7 @@ export default function Icon({ name, size, color, onClick })
   {
     const iconNode = createElement(iconsComponents[name]);
     return (
-      <span className={classNames} onClick={clickHandler}>
+      <span className={iconClassNames} onClick={clickHandler}>
         {iconNode}
       </span>
     );

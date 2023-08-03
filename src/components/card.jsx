@@ -1,8 +1,9 @@
 import "./card.css";
 
+import classNames from "classnames";
+
 import Badge from "../components/badge";
 import Icon from "../components/icon";
-import classNames from "classnames";
 
 function getAge(updatedAt)
 {
