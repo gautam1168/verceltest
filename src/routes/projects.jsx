@@ -6,6 +6,9 @@
 // TODO: Add parameter in router and activate back to all project button and sidebar buttons
 // TODO: Maybe add logrocket
 // TODO: Maybe add alerts on no-op of button
+// TODO: Color of cloning in dropdown
+// TODO: Verify time calculation on cards
+
 import "./projects.css";
 import Sidebar from "../components/sidebar";
 import Button from "../components/button";

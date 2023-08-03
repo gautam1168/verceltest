@@ -11,7 +11,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import ErrorPage from './error-page';
 
-import Root, { loader as projectLoader } from "./routes/root";
+import Root from "./routes/root";
+import { getProjects as projectLoader } from "./query";
 import Projects from "./routes/projects";
 import Docs from './routes/docs';
 import CheatSheet from './routes/cheatsheet';

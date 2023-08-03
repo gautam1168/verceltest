@@ -11,9 +11,3 @@ export default function Root() {
     </>
   );
 }
-
-export async function loader()
-{
-  const projects = await fetch("/data.json").then(res => res.json());
-  return { projects };
-}
