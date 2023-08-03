@@ -1,3 +1,11 @@
+// TODO: Make all import orders same in all files
+// TODO: All css files should have similar scheme
+// TOTO: Add library so manual handling of className is not needed
+// TODO: Fix the toggling of dropdown
+// TODO: Final pass on styling
+// TODO: Add parameter in router and activate back to all project button and sidebar buttons
+// TODO: Maybe add logrocket
+// TODO: Maybe add alerts on no-op of button
 import "./projects.css";
 import Sidebar from "../components/sidebar";
 import Button from "../components/button";

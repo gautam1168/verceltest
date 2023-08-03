@@ -56,7 +56,7 @@ export default function Dropdown({ label, options, onChange, selectedValue })
         tabIndex="0" 
         className="dropdown-list" 
         ref={dropdownRootEl} 
-        onBlur={toggleDropdown}
+        onBlur={() => setIsOpen(false)}
       >
         {
           options.map(it => {
