@@ -22,6 +22,12 @@ export const sortOptions = [
 function initializer({projects, filterOptions, sortOptions})
 {
   const shownIndices = sortAndFilterIndices(filterOptions[0], sortOptions[0], projects.testnet);
+  for (let net of projects.testnet)
+  {
+    net.created_at = new Date(net.created_at);
+    net.updated_at = new Date(net.updated_at);
+  }
+
   return {
     testnet: projects.testnet,
     shownIndices,
@@ -37,13 +43,7 @@ function sortAndFilterIndices(filterconf, sortconf, testnet)
     newIndices = newIndices.filter(it => testnet[it].status == filterconf.value);
   }
 
-  // TODO store the dates as dates to remove this if branch
-  if (sortconf.value.endsWith("_at")) {
-    newIndices.sort((a, b) => {
-      return new Date(testnet[a][sortconf.value]) < new Date(testnet[b][sortconf.value]) ? -1 : 1;
-    });
-  }
-  else if (sortconf.sense == "ASC") {
+  if (sortconf.sense == "ASC") {
     newIndices.sort((a, b) => {
       return testnet[a][sortconf.value] < testnet[b][sortconf.value] ? -1 : 1;
     });
@@ -88,8 +88,10 @@ function testnetReducer(state, action)
 export function useProjectStore()
 {
   const { projects } = useLoaderData();
-  const store = useReducer(testnetReducer,
+  const store = useReducer(
+    testnetReducer,
     { projects, filterOptions, sortOptions },
-    initializer);
+    initializer
+  );
   return store;
 }

@@ -2,9 +2,8 @@ import "./card.css";
 import Badge from "../components/badge";
 import Icon from "../components/icon";
 
-function getAge(updated_at)
+function getAge(updatedAt)
 {
-  const updatedAt = new Date(updated_at);
   const timeDiff = Date.now() - updatedAt;
 
   let diffPhrase = "";
