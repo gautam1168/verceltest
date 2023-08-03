@@ -4,13 +4,18 @@
   --card-body-color: #ffffff;
   --box-shadow-color: #0000001A;
   --active-bg: #f6f8fa;
+  --border-1: #e5e5e5;
   --faded-1: #999999;
   --faded-2: #aaaaaa;
+  --faded-3: #dddddd;
+  --faded-4: #666666;
   --success: #509900;
   --link: #2f80ed;
   --warning: #db9000;
   --failed: #cd3a4c;
+  --failed-faint: #fdf7f8;
   --whimsy: #7B61FF;
+  --dark: #222222;
 }
 
 body {

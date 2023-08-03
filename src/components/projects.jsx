@@ -1,16 +1,12 @@
 // TODO: Make all import orders same in all files
 // TODO: All css files should have similar scheme
-// TOTO: Add library so manual handling of className is not needed
-// TODO: Fix the toggling of dropdown
+// TODO: Add library so manual handling of className is not needed
 // TODO: Final pass on styling
-// TODO: Add parameter in router and activate back to all project button and sidebar buttons
-// TODO: Maybe add logrocket
 // TODO: Maybe add alerts on no-op of button
-// TODO: Color of cloning in dropdown
 // TODO: Verify time calculation on cards
-// TODO: Also change all colors to same name and use css variables
 // TODO: Use props for sidebar and navbar
 // TODO: Fix color of modified x months ago
+// TODO: Connect data to sidebar and hourglass thingies on card
 
 import "./projects.css";
 import Sidebar from "../components/sidebar";

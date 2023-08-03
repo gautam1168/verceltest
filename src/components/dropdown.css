@@ -18,9 +18,9 @@
 .dropdown-list
 {
   position: absolute;
-  background-color: #ffffff;
-  border: #dddddd;
-  box-shadow: 0px 8px 24px 0px #0000001A;
+  background-color: var(--card-body-color);
+  border: var(--faded-3);
+  box-shadow: 0px 8px 24px 0px var(--box-shadow-color);
   border-radius: 15px;
   padding: 10px;
   display: flex;
@@ -41,12 +41,12 @@
 
 .dropdown-list .listitem.selected
 {
-  background-color: #f6f8fa;
+  background-color: var(--active-bg);
 }
 
 .dropdown-list .listitem:hover
 {
-  background-color: #f6f8fa;
+  background-color: var(--active-bg);
   cursor: pointer;
   border-radius: 4px;
 }

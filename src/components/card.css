@@ -12,9 +12,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1px #dddddd;
+  border: solid 1px var(--faded3);
   position: absolute;
-  background-color: #ffffff;
+  background-color: var(--card-body-color);
 }
 
 .logo-group .blockchain-logo > img
@@ -25,8 +25,8 @@
 
 .card-root 
 {
-  background-color: #ffffff;
-  border: solid 1px #E5E5E5;
+  background-color: var(--card-body-color);
+  border: solid 1px var(--border-1);
   border-radius: 20px;
   box-shadow: 0px 4px 6px 0px #0000000F;
   padding: 20px;
@@ -42,8 +42,8 @@
 
 .card-root.failed
 {
-  border-color: #CD3A4C;
-  background-color: #fdf7f8;
+  border-color: var(--failed);
+  background-color: var(--failed-faint);
 }
 
 .card-root.killed
@@ -54,7 +54,7 @@
 .card-root.killed .card-itemrow,
 .card-root.killed .title 
 {
-  color: #666666;
+  color: var(--faded-4);
 }
 
 .card-root .card-itemrow

@@ -1,5 +1,5 @@
 .navbar-root {
-  background-color: #222222;
+  background-color: var(--dark);
   display: flex;
   justify-content: space-between;
   height: 60px;
@@ -9,7 +9,7 @@
 }
 
 .navbar-root a {
-  color: #aaaaaa;
+  color: var(--faded-2);
   text-decoration: none;
 }
 
@@ -40,7 +40,7 @@
   min-width: 2ch;
   min-height: 2ch;
   border-radius: 100%;
-  border: solid 1px #aaaaaa;
+  border: solid 1px var(--faded-2);
   padding: 4px;
   gap: 2px;
   display: flex;

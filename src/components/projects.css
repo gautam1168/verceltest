@@ -33,7 +33,7 @@
 }
  
 .cards-container::-webkit-scrollbar-thumb {
-  background-color: #999999;
+  background-color: var(--faded-1);
   outline: none;
 }
 

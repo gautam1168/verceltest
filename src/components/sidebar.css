@@ -1,7 +1,7 @@
 .sidebar-root
 {
-  background-color: #ffffff;
-  border: solid 1px #dddddd;
+  background-color: var(--card-body-color);
+  border: solid 1px var(--faded-3);
 }
 
 .sidebar-root .cta a
@@ -19,7 +19,7 @@
 
 .sidebar-root .separator
 {
-  border: solid 1px #dddddd;
+  border: solid 1px var(--faded-3);
   border-bottom-color: transparent;
   height: 0;
 }
@@ -58,7 +58,7 @@
 .sidebar-root .menuitem.active
 {
   cursor: pointer;
-  background-color: #f6f8fa;
+  background-color: var(--active-bg);
 }
 
 .sidebar-root .menuitem .icon-root
