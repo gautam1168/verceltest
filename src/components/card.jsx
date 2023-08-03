@@ -107,6 +107,15 @@ export default function Card({ config })
   }
   const diffPhrase = getAge(config.updated_at);
 
+  const numUpdatingOffChainActors = config.testnet_off_chain_actors.filter(it => it.status == "PENDING").length;
+  const updatingOffchainPhrase = `${numUpdatingOffChainActors} off chain updating`;
+
+  const numUpdatingChains = config.testnet_chains.filter(it => it.status == "PENDING").length;
+  const updatingBlockchainPhrase = `${numUpdatingChains} Blockchain${numUpdatingChains == 1 ? '' : 's'} updating`;
+
+  const numChainsPhrase = `${config.testnet_chains.length} Blockchain${config.testnet_chains.length == 1 ? '' : 's' }`;
+  const offChainPhrase = `${config.testnet_off_chain_actors.length} off-chain actor${config.testnet_off_chain_actors.length == 1 ? '' : 's'}`;
+
   let rootClasses = "card-root";
   if (config.status == "STOPPED") {
     rootClasses += " killed";
@@ -139,11 +148,11 @@ export default function Card({ config })
       <div className="card-itemrow">
         <div className="left">
           <span className="typography-medium-14">
-            {config.testnet_off_chain_actors.length} off-chain actors
+            {offChainPhrase}
           </span>
           <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
           <span className="typography-medium-14">
-            {config.testnet_chains.length} Blockchain
+            {numChainsPhrase}
           </span>
           <span className="logo-group">
             {config.testnet_chains.map(getChainImage)}
@@ -160,10 +169,10 @@ export default function Card({ config })
         config.status == "PENDING" && (<div className="card-itemrow">
           <div className="left">
             <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-            <span className="typography-warning typography-medium-14">{config.testnet_off_chain_actors.length} off chain updating</span>
+            <span className="typography-warning typography-medium-14">{updatingOffchainPhrase}</span>
             <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
             <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-            <span className="typography-warning typography-medium-14">{config.testnet_chains.length} Blockchains updating</span>
+            <span className="typography-warning typography-medium-14">{updatingBlockchainPhrase}</span>
           </div>
         </div>)
       }

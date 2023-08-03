@@ -15,8 +15,8 @@ export const sortOptions = [
   { value: "name", sense: "ASC", label: "Name A-Z" },
   { value: "name", sense: "DEC", label: "Name Z-A" },
   { value: "status", sense: "ASC", label: "Status" },
-  { value: "created_at", sense: "ASC", label: "Date created" },
-  { value: "updated_at", sense: "ASC", label: "Last modified" },
+  { value: "created_at", sense: "DEC", label: "Date created" },
+  { value: "updated_at", sense: "DEC", label: "Last modified" },
 ];
 
 function initializer({projects, filterOptions, sortOptions})

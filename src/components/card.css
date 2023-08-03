@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 1px var(--faded3);
+  border: solid 1px var(--faded-3);
   position: absolute;
   background-color: var(--card-body-color);
 }
