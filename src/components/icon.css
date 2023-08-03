@@ -44,30 +44,35 @@
 
 .icon-root.success svg path
 {
-  fill: #509900;
+  fill: var(--success);
 }
 
 .icon-root.warning svg path
 {
-  fill:  #db9000;
+  fill:  var(--warning);
 }
 
-.icon-root.faded svg path
+.icon-root.faded-1 svg path
 {
-  fill: #aaaaaa;
+  fill: var(--faded-1);
+}
+
+.icon-root.faded-2 svg path
+{
+  fill: var(--faded-2);
 }
 
 .icon-root.linkblue svg path
 {
-  fill: #2f80ed;
+  fill: var(--link);
 }
 
 .icon-root.failed svg path
 {
-  fill: #cd3a4c;
+  fill: var(--failed);
 }
 
-.icon-root.purple svg path
+.icon-root.whimsy svg path
 {
-  fill: #7B61FF;
+  fill: var(--whimsy);
 }

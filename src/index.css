@@ -1,5 +1,20 @@
+:root
+{
+  --main-bg-color: #f6f8fa;
+  --card-body-color: #ffffff;
+  --box-shadow-color: #0000001A;
+  --active-bg: #f6f8fa;
+  --faded-1: #999999;
+  --faded-2: #aaaaaa;
+  --success: #509900;
+  --link: #2f80ed;
+  --warning: #db9000;
+  --failed: #cd3a4c;
+  --whimsy: #7B61FF;
+}
+
 body {
-  background-color: #f6f8fa;
+  background-color: var(--main-bg-color);
   margin: 0;
   font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -48,37 +63,37 @@ code {
   line-height: 24px;
 }
 
-.typography-gray9
+.typography-faded-1
 {
-  color: #999999;
+  color: var(--faded-1);
 }
 
-.typography-graya
+.typography-faded-2
 {
-  color: #aaaaaa;
+  color: var(--faded2);
 }
 
-.typography-success-green-dark
+.typography-success
 {
-  color: #509900;
+  color: var(--success);
 }
 
-.typography-link-lightblue
+.typography-link
 {
-  color: #2f80ed;
+  color: var(--link);
 }
 
-.typography-warning-yellow
+.typography-warning
 {
-  color: #db9000;
+  color: var(--warning);
 }
 
-.typography-failed-red
+.typography-failed
 {
-  color: #cd3a4c;
+  color: var(--failed);
 }
 
-.typography-cloning-purple
+.typography-whimsy
 {
-  color: #7B61FF;
+  color: var(--whimsy);
 }

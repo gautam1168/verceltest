@@ -8,6 +8,7 @@
 // TODO: Maybe add alerts on no-op of button
 // TODO: Color of cloning in dropdown
 // TODO: Verify time calculation on cards
+// TODO: Also change all colors to same name and use css variables
 
 import "./projects.css";
 import Sidebar from "../components/sidebar";
@@ -44,7 +45,7 @@ export default function Projects()
             selectedValue={state.selectedFilter}
             onChange={(filterconf) => dispatch({ type: "SET_FILTER", payload: filterconf})}
           />
-          <Icon name="dot" color="faded" size="extrasmall"></Icon>
+          <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
           <Dropdown 
             label="Sort by:" 
             options={sortOptions} 

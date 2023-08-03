@@ -3,7 +3,7 @@ import "./button.css";
 
 export default forwardRef(function Button({children, variant, size, onClick }, ref)
 {
-  const noOpHandler = useCallback(() => {});
+  const noOpHandler = useCallback(() => { alert("This functionality is not implemented!") });
   const clickHandler = onClick || noOpHandler;
   let buttonClasses = "button-root";
   if (size == "regular")
@@ -17,11 +17,11 @@ export default forwardRef(function Button({children, variant, size, onClick }, r
 
   if (variant == "primary")
   {
-    buttonClasses += " typography-link-lightblue";
+    buttonClasses += " typography-link";
   }
   else if (variant == "secondary")
   {
-    buttonClasses += " typography-gray9";
+    buttonClasses += " typography-faded-1";
   }
 
   return (

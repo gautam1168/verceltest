@@ -7,8 +7,8 @@ export const filterOptions = [
   { value: "STANDING", label: "Standing up", icon: "standinghourglass", color: "warning" },
   { value: "PENDING", label: "Updating", icon: "standinghourglass", color: "warning" },
   { value: "FAILED", label: "Failed", icon: "failed", color: "failed" },
-  { value: "STOPPED", label: "Killed", icon: "killed", color: "faded" },
-  { value: "CLONING", label: "Cloning", icon: "cloning", color: "purple" }
+  { value: "STOPPED", label: "Killed", icon: "killed", color: "faded-1" },
+  { value: "CLONING", label: "Cloning", icon: "cloning", color: "whimsy" }
 ];
 
 export const sortOptions = [

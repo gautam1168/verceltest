@@ -32,14 +32,6 @@ export default function Dropdown({ label, options, onChange, selectedValue })
     setIsOpen(curr => !curr);
   }
 
-  const textColors = {
-    linkblue: "typography-link-lightblue",
-    success: "typography-success-green-dark",
-    warning: "typography-warning-yellow",
-    failed: "typography-failed-red",
-    faded: "typography-graya",
-  };
-
   const handleSelect = (item) => {
     toggleDropdown();
     if (onChange)
@@ -66,7 +58,7 @@ export default function Dropdown({ label, options, onChange, selectedValue })
             return (
               <div 
                 key={it.label} 
-                className={"listitem " + selectedclass + textColors[it.color]}
+                className={"listitem " + selectedclass + "typography-" + it.color}
                 onClick={() => handleSelect(it)}
               >
                 {it.icon && <Icon name={it.icon} size="regular" color={it.color}></Icon>}
@@ -81,11 +73,11 @@ export default function Dropdown({ label, options, onChange, selectedValue })
   }
 
   return (
-    <div className="dropdown-root typography-gray9 typography-medium-14">
+    <div className="dropdown-root typography-faded-1 typography-medium-14">
       {label}
       <Button onClick={toggleDropdown} ref={togglerEl}>
         {selectedValue && (
-          <div className={"selecteditem " + textColors[selectedValue.color] + " typography-semibold-14"}>
+          <div className={"selecteditem " + "typography-" + selectedValue.color + " typography-semibold-14"}>
             {selectedValue.icon && (
               <Icon
                 name={selectedValue.icon}

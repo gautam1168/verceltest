@@ -72,24 +72,24 @@ export default function Card({ config })
     let classNames = "vertically-center typography-semibold-14";
     let icon = null;
     if (status == "RUNNING") {
-      classNames += " typography-success-green-dark";
+      classNames += " typography-success";
       icon = <Icon name="tick" size="regular" color="success" />
     }
     else if (status == "STOPPED") {
       classNames += " typography-graya";
-      icon = <Icon name="killed" size="regular" color="faded" />;
+      icon = <Icon name="killed" size="regular" color="faded-1" />;
     }
     else if (status == "PENDING" || status == "STANDING") {
-      classNames += " typography-warning-yellow";
+      classNames += " typography-warning";
       icon = <Icon name="standinghourglass" size="regular" color="warning" />
     }
     else if (status == "FAILED") {
-      classNames += " typography-failed-red";
+      classNames += " typography-failed";
       icon = <Icon name="failed" size="regular" color="failed" />
     }
     else if (status == "CLONING") {
-      classNames += " typography-cloning-purple";
-      icon = <Icon name="cloning" size="regular" color="purple" />
+      classNames += " typography-whimsy";
+      icon = <Icon name="cloning" size="regular" color="whimsy" />
     }
 
     if (status == "STOPPED") {
@@ -121,7 +121,7 @@ export default function Card({ config })
         <div className="left">
           <span className="title typography-h2">{config.name}</span>
           <Badge>
-            <span className="typography-semibold-14 typography-gray9">
+            <span className="typography-semibold-14 typography-faded-1">
               5321
             </span>
           </Badge>
@@ -129,8 +129,8 @@ export default function Card({ config })
         </div>
         <div className="right">
           {getStatus(config.status)}
-          <Icon name="dot" color="faded" size="extrasmall"></Icon>
-          <span className="vertically-center typography-semibold-14 typography-link-lightblue">
+          <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
+          <span className="vertically-center typography-semibold-14 typography-link">
             <Icon name="gear" size="regular" color="linkblue"></Icon>
             Settings
           </span>
@@ -141,7 +141,7 @@ export default function Card({ config })
           <span className="typography-medium-14">
             {config.testnet_off_chain_actors.length} off-chain actors
           </span>
-          <Icon name="dot" color="faded" size="extrasmall"></Icon>
+          <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
           <span className="typography-medium-14">
             {config.testnet_chains.length} Blockchain
           </span>
@@ -150,7 +150,7 @@ export default function Card({ config })
           </span>
         </div>
         <div className="right">
-          <Icon name="clock" size="regular" color="faded" />
+          <Icon name="clock" size="regular" color="faded-1" />
           <span className="typography-graya typography-medium-13">
             Modified {diffPhrase}
           </span>
@@ -160,10 +160,10 @@ export default function Card({ config })
         config.status == "PENDING" && (<div className="card-itemrow">
           <div className="left">
             <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-            <span className="typography-warning-yellow typography-medium-14">{config.testnet_off_chain_actors.length} off chain updating</span>
-            <Icon name="dot" color="faded" size="extrasmall"></Icon>
+            <span className="typography-warning typography-medium-14">{config.testnet_off_chain_actors.length} off chain updating</span>
+            <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
             <Icon name="standinghourglass" color="warning" size="regular"></Icon>
-            <span className="typography-warning-yellow typography-medium-14">{config.testnet_chains.length} Blockchains updating</span>
+            <span className="typography-warning typography-medium-14">{config.testnet_chains.length} Blockchains updating</span>
           </div>
         </div>)
       }
