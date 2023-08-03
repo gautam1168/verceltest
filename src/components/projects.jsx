@@ -1,4 +1,3 @@
-// TODO: Add library so manual handling of className is not needed
 // TODO: Final pass on styling
 
 import "./projects.css";

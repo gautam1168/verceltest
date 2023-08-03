@@ -76,7 +76,7 @@ export default function Card({ config })
       "typography-semibold-14": true,
       "typography-success": status === "RUNNING",
       "typography-faded-1": status === "STOPPED",
-      "typography-warning": status === "STANDING",
+      "typography-warning": (status === "STANDING" || status == "PENDING"),
       "typography-failed": status === "FAILED",
       "typography-whimsy": status === "CLONING"
     });
@@ -131,6 +131,13 @@ export default function Card({ config })
     rootClasses += " failed";
   }
 
+  let settingsColor = "linkblue";
+  let settingsEnabled = ["PENDING", "STANDING", "CLONING"].includes(config.status);
+  if (settingsEnabled)
+  {
+    settingsColor = "faded-1";
+  }
+
   return (
     <div className={rootClasses} key={config.id}>
       <div className="card-itemrow">
@@ -146,8 +153,13 @@ export default function Card({ config })
         <div className="right">
           {getStatus(config.status)}
           <Icon name="dot" color="faded-1" size="extrasmall"></Icon>
-          <span className="vertically-center typography-semibold-14 typography-link">
-            <Icon name="gear" size="regular" color="linkblue"></Icon>
+          <span className={classNames({
+            "vertically-center": true,
+            "typography-semibold-14": true,
+            "typography-link": !settingsEnabled,
+            "typography-faded-1": settingsEnabled
+          })}>
+            <Icon name="gear" size="regular" color={settingsColor}></Icon>
             Settings
           </span>
         </div>
