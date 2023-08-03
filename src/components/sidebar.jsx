@@ -30,7 +30,7 @@ export default function Sidebar({ state })
         </div>
         {it.suffixIcon &&
           (<div className="right">
-            <Icon name={it.suffixIcon} size="regular" color="faded-1" />
+            <Icon name={it.suffixIcon} size="medium" color="faded-1" />
           </div>)
         }
       </div>

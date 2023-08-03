@@ -1,5 +1,3 @@
-// TODO: Final pass on styling
-
 import "./projects.css";
 
 import Sidebar from "../components/sidebar";
@@ -23,7 +21,7 @@ export default function Projects()
           </div>
           <Button variant="primary" size="large"> 
             <div className="addtestnet-content">
-              <Icon name="add" color="linkblue" size="regular"></Icon>
+              <Icon name="add" color="linkblue" size="medium"></Icon>
               New Testnet
             </div>
           </Button>
