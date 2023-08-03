@@ -7,6 +7,7 @@ import Icon from "./icon";
 export default function Dropdown({ label, options, onChange, selectedValue })
 {
   const [isOpen, setIsOpen] = useState(false);
+  const [toggleDisabled, setToggleDisabled] = useState(false);
   const togglerEl = useRef(null);
   const dropdownRootEl = useRef(null);
 
@@ -29,7 +30,16 @@ export default function Dropdown({ label, options, onChange, selectedValue })
   let dropdownlist = null; 
 
   const toggleDropdown = () => {
-    setIsOpen(curr => !curr);
+    if (!toggleDisabled)
+    {
+      setIsOpen(isOpen => !isOpen);
+    }
+  }
+
+  const handleBlur = () => {
+    setToggleDisabled(true);
+    setIsOpen(false);
+    window.addEventListener("click", () => setToggleDisabled(false), { once: true });
   }
 
   const handleSelect = (item) => {
@@ -46,7 +56,7 @@ export default function Dropdown({ label, options, onChange, selectedValue })
         tabIndex="0" 
         className="dropdown-list" 
         ref={dropdownRootEl} 
-        onBlur={() => setIsOpen(false)}
+        onBlur={handleBlur}
       >
         {
           options.map(it => {

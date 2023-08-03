@@ -9,6 +9,7 @@
 // TODO: Color of cloning in dropdown
 // TODO: Verify time calculation on cards
 // TODO: Also change all colors to same name and use css variables
+// TODO: Use props for sidebar and navbar
 
 import "./projects.css";
 import Sidebar from "../components/sidebar";
