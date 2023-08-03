@@ -2,6 +2,7 @@ import "./card.css";
 
 import Badge from "../components/badge";
 import Icon from "../components/icon";
+import classNames from "classnames";
 
 function getAge(updatedAt)
 {
@@ -69,39 +70,44 @@ export default function Card({ config })
   };
 
   const getStatus = status => {
-    let classNames = "vertically-center typography-semibold-14";
+    let rootClassNames = classNames({
+      "vertically-center": true, 
+      "typography-semibold-14": true,
+      "typography-success": status === "RUNNING",
+      "typography-faded-1": status === "STOPPED",
+      "typography-warning": status === "STANDING",
+      "typography-failed": status === "FAILED",
+      "typography-whimsy": status === "CLONING"
+    });
+
     let icon = null;
     if (status == "RUNNING") {
-      classNames += " typography-success";
       icon = <Icon name="tick" size="regular" color="success" />
     }
     else if (status == "STOPPED") {
-      classNames += " typography-faded-1";
       icon = <Icon name="killed" size="regular" color="faded-1" />;
     }
     else if (status == "PENDING" || status == "STANDING") {
-      classNames += " typography-warning";
       icon = <Icon name="standinghourglass" size="regular" color="warning" />
     }
     else if (status == "FAILED") {
-      classNames += " typography-failed";
       icon = <Icon name="failed" size="regular" color="failed" />
     }
     else if (status == "CLONING") {
-      classNames += " typography-whimsy";
       icon = <Icon name="cloning" size="regular" color="whimsy" />
     }
 
+    let label = status;
     if (status == "STOPPED") {
-      status = "KILLED";
+      label = "KILLED";
     }
     else if (status == "PENDING") {
-      status = "UPDATING";
+      label = "UPDATING";
     }
 
     return (
-      <span className={classNames}>
-        {icon}{status}
+      <span className={rootClassNames}>
+        {icon}{label}
       </span>
     );
   }

@@ -16,7 +16,7 @@
 
 .projects-root .cards-container
 {
-  max-height: calc(100vh - var(--project-body-padding) - var(--typography-h2-lineheight) - var(--toolbar-bottom-margin)); 
+  max-height: calc(100vh - var(--project-body-padding) - var(--typography-h2-lineheight) - var(--toolbar-bottom-margin) - var(--navbar-height)); 
   overflow-y: auto;
   max-width: 1078px;
   display: flex;
