@@ -2,11 +2,10 @@
 // TODO: All css files should have similar scheme
 // TODO: Add library so manual handling of className is not needed
 // TODO: Final pass on styling
-// TODO: Maybe add alerts on no-op of button
 // TODO: Verify time calculation on cards
 // TODO: Use props for sidebar and navbar
-// TODO: Fix color of modified x months ago
 // TODO: Connect data to sidebar and hourglass thingies on card
+// TODO: Maybe make variables for card gaps etc?
 
 import "./projects.css";
 import Sidebar from "../components/sidebar";

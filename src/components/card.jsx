@@ -75,7 +75,7 @@ export default function Card({ config })
       icon = <Icon name="tick" size="regular" color="success" />
     }
     else if (status == "STOPPED") {
-      classNames += " typography-graya";
+      classNames += " typography-faded-1";
       icon = <Icon name="killed" size="regular" color="faded-1" />;
     }
     else if (status == "PENDING" || status == "STANDING") {
@@ -150,7 +150,7 @@ export default function Card({ config })
         </div>
         <div className="right">
           <Icon name="clock" size="regular" color="faded-1" />
-          <span className="typography-graya typography-medium-13">
+          <span className="typography-faded-1 typography-medium-13">
             Modified {diffPhrase}
           </span>
         </div>
