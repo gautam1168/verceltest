@@ -29,6 +29,11 @@ function initializer({projects, filterOptions, sortOptions})
   }
 
   return {
+    sidebarItems: [
+      { label: "Testnets", prefixIcon: "testnets", count: projects.testnet.length, suffixIcon: "add", selected: true, level: 2 },
+      { label: "Members", prefixIcon: "members", count: 1, suffixIcon: "add", level: 2 },
+      { label: "Project Key", prefixIcon: "projectkey", suffixIcon: "cloning", level: 2 },
+    ],
     testnet: projects.testnet,
     shownIndices,
     selectedFilter: filterOptions[0],

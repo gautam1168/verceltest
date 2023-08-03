@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Outlet, useLocation, Link } from "react-router-dom";
 
 export default function Project() 
@@ -16,9 +15,6 @@ export default function Project()
       </ul>
       </div>);
   }
-  useEffect(() => {
-    console.log("Location: ", location)
-  });
 
   return (<>{links}<Outlet></Outlet></>);
 }

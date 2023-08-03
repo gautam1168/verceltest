@@ -18,7 +18,7 @@ export default function Projects()
   const [state, dispatch] = useProjectStore();
 
   return (<div className="projects-root">
-    <Sidebar />
+    <Sidebar state={ state }/>
     <div className="projects-body">
       <div className="project-data-controls">
         <div className="left">
