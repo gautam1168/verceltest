@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { useLoaderData } from "react-router-dom";
 
-export const filterOptions = [
+export const filterOptions = () => ([
   { value: "ALL", label: "All", icon: "all", color: "linkblue" },
   { value: "RUNNING", label: "Running", icon: "tick", color: "success" },
   { value: "STANDING", label: "Standing up", icon: "standinghourglass", color: "warning" },
@@ -9,7 +9,7 @@ export const filterOptions = [
   { value: "FAILED", label: "Failed", icon: "failed", color: "failed" },
   { value: "STOPPED", label: "Killed", icon: "killed", color: "faded-1" },
   { value: "CLONING", label: "Cloning", icon: "cloning", color: "whimsy" }
-];
+]);
 
 export const sortOptions = [
   { value: "name", sense: "ASC", label: "Name A-Z" },
@@ -22,10 +22,29 @@ export const sortOptions = [
 function initializer({projects, filterOptions, sortOptions})
 {
   const shownIndices = sortAndFilterIndices(filterOptions[0], sortOptions[0], projects.testnet);
+  const filterCounts = {
+    RUNNING: 0,
+    STANDING: 0,
+    PENDING: 0,
+    FAILED: 0,
+    STOPPED: 0,
+    CLONING: 0
+  };
+
   for (let net of projects.testnet)
   {
     net.created_at = new Date(net.created_at);
     net.updated_at = new Date(net.updated_at);
+    filterCounts[net.status] += 1;
+  }
+
+  for (let key in filterCounts)
+  {
+    const option = filterOptions.find(it => it.value == key);
+    if (option)
+    {
+      option.label += ` (${filterCounts[key]})`;
+    }
   }
 
   return {
@@ -37,7 +56,8 @@ function initializer({projects, filterOptions, sortOptions})
     testnet: projects.testnet,
     shownIndices,
     selectedFilter: filterOptions[0],
-    selectedSort: sortOptions[0]
+    selectedSort: sortOptions[0],
+    filterOptions
   };
 }
 
@@ -95,7 +115,7 @@ export function useProjectStore()
   const { projects } = useLoaderData();
   const store = useReducer(
     testnetReducer,
-    { projects, filterOptions, sortOptions },
+    { projects, filterOptions: filterOptions(), sortOptions },
     initializer
   );
   return store;

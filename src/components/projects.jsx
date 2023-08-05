@@ -5,7 +5,7 @@ import Button from "../components/button";
 import Icon from "../components/icon";
 import Dropdown from "../components/dropdown";
 import Card from "../components/card";
-import { useProjectStore, filterOptions, sortOptions } from "../store";
+import { useProjectStore, sortOptions } from "../store";
 
 export default function Projects()
 {
@@ -29,7 +29,7 @@ export default function Projects()
         <div className="right">
           <Dropdown 
             label="Filter by:" 
-            options={filterOptions}
+            options={state.filterOptions}
             selectedValue={state.selectedFilter}
             onChange={(filterconf) => dispatch({ type: "SET_FILTER", payload: filterconf})}
           />
